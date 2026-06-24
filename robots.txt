@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://health-literacy.vercel.app/sitemap.xml
