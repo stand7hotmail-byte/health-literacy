@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案B：マガジン型 — 健康リテラシー</title>
+<style>
+:root {
+  --primary: #1a5276;
+  --primary-light: #eaf2f8;
+  --accent: #d4a017;
+  --accent-light: #fef9e7;
+  --bg: #f8f9fa;
+  --card: #ffffff;
+  --text: #2c3e50;
+  --text-mid: #5d6d7e;
+  --text-light: #95a5a6;
+  --border: #e5e8ec;
+  --warn: #e67e22;
+  --warn-light: #fef5e7;
+  --info: #27ae60;
+  --info-light: #eafaf1;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Header - Magazine style */
+.masthead {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 20px 16px 12px;
+}
+.masthead-date {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.masthead-title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 4px 0;
+  font-family: "Georgia", serif;
+}
+.masthead-sub {
+  font-size: 0.78rem;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+.masthead-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  margin: 10px auto 0;
+}
+
+/* Tab Navigation */
+.tab-nav {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+.tab-nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  padding: 0 16px;
+}
+.tab-nav a {
+  display: block;
+  padding: 14px 20px;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.tab-nav a:hover, .tab-nav a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Container */
+.container { max-width: 900px; margin: 0 auto; padding: 24px 20px 48px; }
+
+/* Carousel Hero */
+.carousel {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  background: var(--card);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.carousel-slide {
+  display: none;
+  padding: 40px 32px;
+  min-height: 220px;
+  position: relative;
+}
+.carousel-slide.active { display: block; }
+.carousel-slide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(26,82,118,0.05) 0%, rgba(212,160,23,0.05) 100%);
+}
+.carousel-tag {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+.carousel-slide h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.carousel-slide h2 a { color: var(--text); text-decoration: none; }
+.carousel-slide h2 a:hover { color: var(--primary); }
+.carousel-slide p {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg);
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.carousel-dot.active { background: var(--primary); }
+
+/* Magazine Grid */
+.mag-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.mag-main { display: flex; flex-direction: column; gap: 20px; }
+.mag-sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+/* Article Card - Magazine */
+.article-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.15s;
+}
+.article-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); }
+.article-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  position: relative;
+}
+.article-img-1 { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
+.article-img-2 { background: linear-gradient(135deg, #ede7f6 0%, #d1c4e9 100%); }
+.article-img-3 { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
+.article-img-4 { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+.article-img-5 { background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); }
+.article-img-6 { background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); }
+.article-body { padding: 20px; }
+.article-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.tag-heart { background: #fce4ec; color: #b71c1c; }
+.tag-brain { background: #ede7f6; color: #4a148c; }
+.tag-muscle { background: #e8f5e9; color: #1b5e20; }
+.tag-sleep { background: #e3f2fd; color: #0d47a1; }
+.tag-gut { background: #e0f2f1; color: #004d40; }
+.tag-check { background: #f3e5f5; color: #6a1b9a; }
+.article-body h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.article-body h3 a { color: var(--text); text-decoration: none; }
+.article-body h3 a:hover { color: var(--primary); }
+.article-body p {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.article-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* Sidebar Cards */
+.sidebar-card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+}
+.sidebar-card h4 {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--primary);
+}
+.sidebar-card li {
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.85rem;
+  list-style: none;
+}
+.sidebar-card li:last-child { border-bottom: none; }
+.sidebar-card li a { color: var(--text); text-decoration: none; display: block; }
+.sidebar-card li a:hover { color: var(--primary); }
+.sidebar-num {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 8px;
+}
+
+/* Action Box */
+.action-box {
+  background: var(--accent-light);
+  border: 1px solid #f9e79f;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 16px;
+}
+.action-box h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--warn);
+  margin-bottom: 10px;
+}
+.action-steps { list-style: none; counter-reset: steps; }
+.action-steps li {
+  counter-increment: steps;
+  padding: 5px 0 5px 28px;
+  position: relative;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+.action-steps li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: var(--warn);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Affiliate inline */
+.aff-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-size: 0.78rem;
+}
+.aff-inline a { color: var(--primary); font-weight: 700; text-decoration: none; }
+.aff-inline a:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+footer a { color: var(--accent); text-decoration: none; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .mag-grid { grid-template-columns: 1fr; }
+  .masthead-title { font-size: 1.5rem; }
+  .carousel-slide { padding: 24px 20px; min-height: 180px; }
+  .carousel-slide h2 { font-size: 1.2rem; }
+  .tab-nav a { padding: 12px 14px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="masthead-date">2026年6月20日 土曜日</div>
+  <div class="masthead-title">健康リテラシー</div>
+  <div class="masthead-sub">50代の健康を、医学論文からやさしく</div>
+  <div class="masthead-rule"></div>
+</div>
+
+<!-- Tab Nav -->
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <a href="#" class="active">トップ</a>
+    <a href="#">心臓・血管</a>
+    <a href="#">脳・認知</a>
+    <a href="#">筋肉・骨</a>
+    <a href="#">睡眠</a>
+    <a href="#">腸内フローラ</a>
+    <a href="#">目の健康</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-slide active">
+      <span class="carousel-tag">❤️ 血管・心臓</span>
+      <h2><a href="#">「歩いてる」だけじゃなかった — 歩数を"見える化"すると心臓が強くなる</a></h2>
+      <p>アメリカ心臓協会誌（JAHA）に掲載。ウェアラブルで歩数を確認しながら運動したグループは、有意に身体活動量が増えたとのこと。</p>
+    </div>
+    <div class="carousel-slide">
+      <span class="carousel-tag">🧠 脳・認知</span>
+      <h2><a href="#">AIが脳の活動を"再現" — 認知症研究に光</a></h2>
+      <p>BrainWorldモデルが最大400フレームの安定した4D fMRI軌跡を生成。認知症の早期発見に応用へ。</p>
+    </div>
+    <div class="carousel-slide">
+      <span class="carousel-tag">💪 筋肉・骨</span>
+      <h2><a href="#">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h2>
+      <p>SRとミトコンドリアの共局在が加齢で乱れ、エネルギー供給効率が落ちることが判明。</p>
+    </div>
+    <div class="carousel-dots">
+      <span class="carousel-dot active" onclick="showSlide(0)"></span>
+      <span class="carousel-dot" onclick="showSlide(1)"></span>
+      <span class="carousel-dot" onclick="showSlide(2)"></span>
+    </div>
+  </div>
+
+  <!-- Magazine Grid -->
+  <div class="mag-grid">
+    <!-- Main Column -->
+    <div class="mag-main">
+      <div class="article-card">
+        <div class="article-img article-img-1">❤️</div>
+        <div class="article-body">
+          <span class="article-tag tag-heart">血管・心臓</span>
+          <h3><a href="#">心臓の手術前に「気分」が不安定だと、術後も長引く</a></h3>
+          <p>術前にうつ病や不安障害を合併していると、術後の回復が遅く入院期間が長くなる傾向が。</p>
+          <div class="article-meta">
+            <span>Journal of Thoracic Disease · 2026.05.31</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-img article-img-2">🧠</div>
+        <div class="article-body">
+          <span class="article-tag tag-brain">脳科学</span>
+          <h3><a href="#">「耳鳴り」は脳が頑張っている証拠？ — 10年かけて分かったこと</a></h3>
+          <p>確率的共振モデルが提唱から10年。動物実験や臨床データが理論を支持しつつあります。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.NC) · 2026.06.16</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-img article-img-3">💪</div>
+        <div class="article-body">
+          <span class="article-tag tag-muscle">筋肉・骨</span>
+          <h3><a href="#">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h3>
+          <p>SRとミトコンドリアの共局在が加齢で乱れ、エネルギー供給効率が落ちる。運動・栄養・薬物療法で維持可能。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.SC) · 2026.06.16</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="mag-sidebar">
+      <div class="sidebar-card">
+        <h4>🔥 人気記事ランキング</h4>
+        <ul>
+          <li><a href="#"><span class="sidebar-num">1</span>歩数を"見える化"すると心臓が強くなる</a></li>
+          <li><a href="#"><span class="sidebar-num">2</span>睡眠不足が血管を傷つける</a></li>
+          <li><a href="#"><span class="sidebar-num">3</span>腸内細菌叢が免疫力を左右</a></li>
+          <li><a href="#"><span class="sidebar-num">4</span>加齢黄斑変性 — 失明原因第4位</a></li>
+          <li><a href="#"><span class="sidebar-num">5</span>AIが脳の活動を"再現"</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>📋 今日からできること</h4>
+        <ul>
+          <li><a href="#">今日の歩数を1回だけ確認する</a></li>
+          <li><a href="#">寝る1時間前にスマホを置く</a></li>
+          <li><a href="#">食事に卵1個を追加する</a></li>
+          <li><a href="#">健診結果の5項目に印をつける</a></li>
+        </ul>
+      </div>
+
+      <div class="aff-inline">
+        🛒 <a href="#">おすすめ健康商品を見る →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- More Articles -->
+  <div class="mag-grid">
+    <div class="mag-main">
+      <div class="article-card">
+        <div class="article-img article-img-4">😴</div>
+        <div class="article-body">
+          <span class="article-tag tag-sleep">睡眠</span>
+          <h3><a href="#">睡眠不足が血管を傷つける — 睡眠時間と心血管リスク</a></h3>
+          <p>睡眠時間6時間未満は心血管疾患リスクが約11%上昇。50代以降は睡眠時無呼吸症候群の有病率が上昇。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.NC) · 2026.06.10</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card">
+        <div class="article-img article-img-5">🦠</div>
+        <div class="article-body">
+          <span class="article-tag tag-gut">腸内環境</span>
+          <h3><a href="#">腸内細菌叢が免疫力を左右 — 加齢と腸内環境</a></h3>
+          <p>免疫細胞の約70%が腸に存在。50代以降はビフィズス菌などの有益菌が減少。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.CB) · 2026.06.08</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mag-sidebar">
+      <div class="sidebar-card">
+        <h4>🔍 カテゴリ別</h4>
+        <ul>
+          <li><a href="#">❤️ 血管・心臓（2本）</a></li>
+          <li><a href="#">🧠 脳・認知（2本）</a></li>
+          <li><a href="#">💪 筋肉・骨（1本）</a></li>
+          <li><a href="#">😴 睡眠（1本）</a></li>
+          <li><a href="#">🦠 腸内フローラ（1本）</a></li>
+          <li><a href="#">👁️ 目の健康（1本）</a></li>
+        </ul>
+      </div>
+
+      <div class="action-box">
+        <h3>😴 睡眠を整える習慣</h3>
+        <ul class="action-steps">
+          <li>寝る1時間前にスマホを別の部屋に置く</li>
+          <li>毎日同じ時間に起きる（休日も±1時間以内）</li>
+          <li>昼寝は20分以内、15時までに</li>
+          <li>いびきが気になるなら検査を受ける</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eyes Section -->
+  <div class="article-card" style="margin-bottom:32px;">
+    <div class="article-img article-img-6">👁️</div>
+    <div class="article-body">
+      <span class="article-tag tag-check">眼科</span>
+      <h3><a href="#">加齢黄斑変性 — 50代から増える視力低下の主要原因</a></h3>
+      <p>日本の失明原因第4位。早期発見が鍵で、年1回の眼科検診と禁煙、ルテイン摂取が予防に有効です。</p>
+      <div class="article-meta">
+        <span>日本眼科学会 · 診療ガイドライン</span>
+        <a href="#" style="color:var(--primary);font-weight:700;">続きを読む →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>健康リテラシー</strong> — 50歳すぎたらここを見る</p>
+  <p style="margin-top:8px">
+    <a href="/privacy.html">プライバシーポリシー</a> ·
+    <a href="#">お問い合わせ</a>
+  </p>
+  <p style="margin-top:8px">※ 本サイトは情報提供が目的です。健康上の判断は必ず医師にご相談ください。</p>
+</footer>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    currentSlide = n;
+  }
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
+</script>
+</body>
+</html>

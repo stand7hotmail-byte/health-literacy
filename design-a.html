@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案A：ミニマル＆フォーカス型 — 健康リテラシー</title>
+<style>
+:root {
+  --primary: #c44b28;
+  --primary-dark: #9a3520;
+  --primary-light: #fff3ed;
+  --accent: #2d7d46;
+  --accent-light: #edf7f0;
+  --bg: #f7f5f2;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --text-mid: #555;
+  --text-light: #888;
+  --border: #e8e4df;
+  --warn: #e85d04;
+  --warn-light: #fff4e6;
+  --info: #1a6eb5;
+  --info-light: #e8f4fd;
+}
+[data-theme="dark"] {
+  --primary: #e8724e;
+  --primary-dark: #c44b28;
+  --primary-light: #2a1a14;
+  --accent: #4caf7d;
+  --accent-light: #1a2e22;
+  --bg: #1a1a1a;
+  --card: #252525;
+  --text: #e8e8e8;
+  --text-mid: #b0b0b0;
+  --text-light: #777;
+  --border: #3a3a3a;
+  --warn: #f09040;
+  --warn-light: #2a1f10;
+  --info: #5a9fd4;
+  --info-light: #1a2a3a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 17px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+.top-bar {
+  background: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+}
+header {
+  background: var(--card);
+  border-bottom: 2px solid var(--border);
+  padding: 12px 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  gap: 12px;
+}
+.logo { font-size: 1.3rem; font-weight: 900; color: var(--primary); white-space: nowrap; }
+.logo-sub { font-size: 0.75rem; color: var(--text-light); font-weight: 400; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: var(--text-mid);
+  transition: all 0.15s;
+}
+.theme-toggle:hover { background: var(--primary-light); border-color: var(--primary); }
+
+/* Search */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 6px 14px;
+  flex: 1;
+  max-width: 320px;
+  transition: border-color 0.15s;
+}
+.search-box:focus-within { border-color: var(--primary); }
+.search-box input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.88rem;
+  color: var(--text);
+  width: 100%;
+  font-family: inherit;
+}
+.search-box input::placeholder { color: var(--text-light); }
+.search-box button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0 4px;
+}
+
+/* Nav - 5 items */
+.nav-wrap { max-width: 860px; margin: 0 auto; }
+nav ul { display: flex; list-style: none; gap: 0; overflow-x: auto; }
+nav li a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+nav li a:hover, nav li a.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* Container */
+.container { max-width: 860px; margin: 0 auto; padding: 24px 20px 48px; }
+
+/* Hero Card - Featured */
+.hero-card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+}
+.hero-card-tag {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+.hero-card-body { padding: 32px; }
+.hero-card h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+.hero-card h2 a { color: var(--text); text-decoration: none; }
+.hero-card h2 a:hover { color: var(--primary); }
+.hero-card-summary {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.hero-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.hero-card-source { font-size: 0.78rem; color: var(--text-light); }
+.read-more {
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.read-more:hover { text-decoration: underline; }
+
+/* Section */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text);
+  padding: 8px 0 14px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Compact Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 20px;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.card-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.tag-heart { background: #fce4ec; color: #b71c1c; }
+.tag-brain { background: #ede7f6; color: #4a148c; }
+.tag-muscle { background: #e8f5e9; color: #1b5e20; }
+.tag-sleep { background: #e3f2fd; color: #0d47a1; }
+.tag-gut { background: #e0f2f1; color: #004d40; }
+.tag-check { background: #f3e5f5; color: #6a1b9a; }
+.card h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--primary); }
+.card-summary {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-action {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-action-btn {
+  font-size: 0.78rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 4px 0;
+}
+.card-action-btn:hover { text-decoration: underline; }
+.card-cta {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  text-decoration: none;
+}
+.card-cta:hover { color: var(--primary); }
+
+/* Action Box */
+.action-box {
+  background: var(--accent-light);
+  border: 1px solid #b7dfc0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-top: 16px;
+}
+.action-box h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.action-steps { list-style: none; counter-reset: steps; }
+.action-steps li {
+  counter-increment: steps;
+  padding: 6px 0 6px 32px;
+  position: relative;
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+.action-steps li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Affiliate compact */
+.aff-mini {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+}
+.aff-mini-icon { font-size: 1.2rem; }
+.aff-mini-text { flex: 1; color: var(--text-mid); }
+.aff-mini-link {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.aff-mini-link:hover { text-decoration: underline; }
+
+/* Footer */
+footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+footer a { color: var(--primary); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header-inner { flex-wrap: wrap; }
+  .search-box { order: 3; max-width: 100%; width: 100%; margin-top: 8px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .hero-card-body { padding: 20px; }
+  .hero-card h2 { font-size: 1.15rem; }
+  nav li a { padding: 8px 12px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">🩺 50代の健康を、医学論文からやさしく</div>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="logo">健康リテラシー</div>
+      <div class="logo-sub">50歳すぎたらここを見る</div>
+    </div>
+    <div class="header-right">
+      <div class="search-box">
+        <input type="text" placeholder="健康情報を検索...">
+        <button>🔍</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    </div>
+  </div>
+  <div class="nav-wrap">
+    <ul>
+      <li><a href="#" class="active">トップ</a></li>
+      <li><a href="#">心臓・血管</a></li>
+      <li><a href="#">脳・認知</a></li>
+      <li><a href="#">筋肉・骨</a></li>
+      <li><a href="#">その他 ▾</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HERO: Featured Article -->
+  <div class="hero-card">
+    <div class="hero-card-body">
+      <span class="hero-card-tag">❤️ 血管・心臓</span>
+      <h2><a href="#">「歩いてる」だけじゃなかった — 歩数を"見える化"すると心臓が強くなる</a></h2>
+      <p class="hero-card-summary">
+        アメリカ心臓協会誌（JAHA）に掲載された研究。心臓病や脳卒中を患った約2,900人分のデータをまとめた結果、<strong>ウェアラブルで歩数を確認しながら運動したグループは、しなかったグループより有意に身体活動量が増えた</strong>とのこと。「意識する」だけで変わるという、シンプルですが強力な結果です。
+      </p>
+      <div class="hero-card-foot">
+        <span class="hero-card-source">Journal of the American Heart Association · 2026.06.17</span>
+        <a href="#" class="read-more">続きを読む →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 心臓・血管 -->
+  <div class="section">
+    <div class="section-title">❤️ 血管・心臓</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-heart">血管・心臓</span>
+        <h3><a href="#">心臓の手術前に「気分」が不安定だと、術後も長引く</a></h3>
+        <p class="card-summary">術前にうつ病や不安障害を合併していると、術後の回復が遅く入院期間が長くなる傾向が。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">原著論文</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-tag tag-heart">呼吸器</span>
+        <h3><a href="#">中国のデータに見る「肺の病気」の男女差</a></h3>
+        <p class="card-summary">GBD 2023の分析で、女性の方が男性より死亡率の増加率が高いという意外な結果が。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">原著論文</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 脳・認知 -->
+  <div class="section">
+    <div class="section-title">🧠 脳・認知</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-brain">脳科学</span>
+        <h3><a href="#">AIが脳の活動を"再現" — 認知症研究に光</a></h3>
+        <p class="card-summary">BrainWorldモデルが最大400フレームの安定した4D fMRI軌跡を生成。認知症の早期発見に。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-tag tag-brain">神経科学</span>
+        <h3><a href="#">「耳鳴り」は脳が頑張っている証拠？ — 10年かけて分かったこと</a></h3>
+        <p class="card-summary">確率的共振モデルが提唱から10年。動物実験や臨床データが理論を支持しつつあります。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 筋肉・骨 -->
+  <div class="section">
+    <div class="section-title">💪 筋肉・骨</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-muscle">老化</span>
+        <h3><a href="#">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h3>
+        <p class="card-summary">SRとミトコンドリアの共局在が加齢で乱れ、エネルギー供給効率が落ちることが判明。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-tag tag-muscle">発達</span>
+        <h3><a href="#">乳児のローリング運動を再現 — 身体形状が運動発達を形作る</a></h3>
+        <p class="card-summary">仮想乳児モデルMIMoが強化学習で寝返り運動を再現。身体形態の変化が運動発達を形作る。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 睡眠 -->
+  <div class="section">
+    <div class="section-title">😴 睡眠</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-sleep">睡眠</span>
+        <h3><a href="#">睡眠不足が血管を傷つける — 睡眠時間と心血管リスク</a></h3>
+        <p class="card-summary">睡眠時間6時間未満は心血管疾患リスクが約11%上昇。50代以降は睡眠時無呼吸症候群の有病率が上昇。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-tag tag-gut">腸内環境</span>
+        <h3><a href="#">腸内細菌叢が免疫力を左右 — 加齢と腸内環境</a></h3>
+        <p class="card-summary">免疫細胞の約70%が腸に存在。50代以降はビフィズス菌などの有益菌が減少。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">プレプリント</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Box -->
+  <div class="action-box">
+    <h3>😴 睡眠を整える（心臓・血管・脳に効く）</h3>
+    <ul class="action-steps">
+      <li>寝る1時間前にスマホを別の部屋に置く</li>
+      <li>毎日同じ時間に起きる（休日も±1時間以内）</li>
+      <li>昼寝は20分以内、15時までに</li>
+      <li>いびきが気になるなら、睡眠時無呼吸の検査を受ける</li>
+    </ul>
+  </div>
+
+  <!-- Section: 目の健康 -->
+  <div class="section">
+    <div class="section-title">👁️ 目の健康</div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-check">眼科</span>
+        <h3><a href="#">加齢黄斑変性 — 50代から増える視力低下の主要原因</a></h3>
+        <p class="card-summary">日本の失明原因第4位。早期発見が鍵で、年1回の眼科検診と禁煙、ルテイン摂取が有効。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">詳細を見る</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="card-tag tag-check">検査</span>
+        <h3><a href="#">50代の健康診断、最低限チェックすべき5項目</a></h3>
+        <p class="card-summary">① 血圧 ② HbA1c ③ LDLコレステロール ④ 肝機能 ⑤ 腎機能。この5つに異常があれば再検査のタイミングです。</p>
+        <div class="card-action">
+          <a href="#" class="card-action-btn">続きを読む →</a>
+          <a href="#" class="card-cta">詳細を見る</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Box -->
+  <div class="action-box">
+    <h3>👁️ 目を守る習慣</h3>
+    <ul class="action-steps">
+      <li>50代以降は年1回の眼科検診（眼底検査）を受ける</li>
+      <li>スマホ・PC使用時は20分ごとに20秒遠くを見る</li>
+      <li>紫外線から目を守るためサングラスを着用する</li>
+      <li>喫煙は最大のリスク因子 — 禁煙を強く推奨</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p><strong>健康リテラシー</strong> — 50歳すぎたらここを見る</p>
+  <p style="margin-top:8px">
+    <a href="/privacy.html">プライバシーポリシー</a> ·
+    <a href="#">お問い合わせ</a>
+  </p>
+  <p style="margin-top:8px">※ 本サイトは情報提供が目的です。健康上の判断は必ず医師にご相談ください。</p>
+</footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    document.querySelector('.theme-toggle').textContent = next === 'dark' ? '☀️' : '🌙';
+  }
+  // Load saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    document.querySelector('.theme-toggle').textContent = saved === 'dark' ? '☀️' : '🌙';
+  }
+</script>
+</body>
+</html>

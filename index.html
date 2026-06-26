@@ -10,879 +10,559 @@
 <meta property="og:description" content="健康リテラシーは、50代以上の方を対象に、最新の医学論文の抄訳をやさしく解説する健康情報サイトです。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://health-literacy.vercel.app">
-<meta property="og:image" content="https://health-literacy.vercel.app/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "健康リテラシー",
-  "description": "50代以上の方を対象に、最新の医学論文の抄訳をやさしく解説する健康情報サイト",
-  "url": "https://health-literacy.vercel.app",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://health-literacy.vercel.app/?s={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
+{"@context":"https://schema.org","@type":"WebSite","name":"健康リテラシー","description":"50代以上の方を対象に、最新の医学論文の抄訳をやさしく解説する健康情報サイト","url":"https://health-literacy.vercel.app"}
 </script>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RB86LNWWVG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RB86LNWWVG');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-RB86LNWWVG');</script>
 <style>
-:root {
-  --primary: #c44b28;
-  --primary-dark: #9a3520;
-  --primary-light: #fff3ed;
-  --accent: #2d7d46;
-  --accent-light: #edf7f0;
-  --bg: #f7f5f2;
-  --card: #ffffff;
-  --text: #2c2c2c;
-  --text-mid: #555;
-  --text-light: #888;
-  --border: #e8e4df;
-  --warn: #e85d04;
-  --warn-light: #fff4e6;
-  --info: #1a6eb5;
-  --info-light: #e8f4fd;
-  --blue: #1a6eb5;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.8;
-  font-size: 17px;
-}
-.top-bar {
-  background: var(--primary);
-  color: #fff;
-  text-align: center;
-  padding: 6px 16px;
-  font-size: 0.82rem;
-  letter-spacing: 0.5px;
-}
-header {
-  background: #fff;
-  border-bottom: 3px solid var(--primary);
-  padding: 18px 32px 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.header-inner {
-  max-width: 860px;
-  margin: 0 auto;
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  padding-bottom: 14px;
-}
-.logo { font-size: 1.5rem; font-weight: 900; color: var(--primary); white-space: nowrap; }
-.logo-sub { font-size: 0.82rem; color: var(--text-light); font-weight: 400; }
-.date-now { font-size: 0.8rem; color: var(--text-light); margin-left: auto; white-space: nowrap; }
-.nav-wrap { max-width: 860px; margin: 0 auto; }
-nav ul { display: flex; list-style: none; gap: 0; overflow-x: auto; }
-nav li a { display: block; padding: 10px 18px; color: var(--text-mid); text-decoration: none; font-size: 0.88rem; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.15s; white-space: nowrap; }
-nav li a:hover, nav li a.active { color: var(--primary); border-bottom-color: var(--primary); }
-.container { max-width: 860px; margin: 0 auto; padding: 28px 20px 48px; }
-.hero-box { background: linear-gradient(135deg, #fff3ed 0%, #ffe8d6 100%); border: 2px solid #f0c4a8; border-radius: 14px; padding: 28px 32px; margin-bottom: 28px; }
-.hero-box h2 { font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.hero-box p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
-.section { margin-bottom: 36px; }
-.section-title { font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); padding: 8px 0 12px; border-bottom: 3px solid var(--primary); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; letter-spacing: 0.3px; }
-.card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); padding: 24px 28px; margin-bottom: 16px; transition: box-shadow 0.15s; }
-.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.card-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 8px; letter-spacing: 0.5px; }
-.tag-heart { background: #fce4ec; color: #b71c1c; }
-.tag-brain { background: #ede7f6; color: #4a148c; }
-.tag-muscle { background: #e8f5e9; color: #1b5e20; }
-.tag-sugar { background: #fff8e1; color: #e65100; }
-.tag-sleep { background: #e3f2fd; color: #0d47a1; }
-.tag-check { background: #f3e5f5; color: #6a1b9a; }
-.tag-food { background: #e0f2f1; color: #004d40; }
-.tag-calc { background: #fce4ec; color: #880e4f; }
-.tag-data { background: #fff3e0; color: #bf360c; }
-.tag-pill { background: #e8eaf6; color: #283593; }
-.card h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.5; margin-bottom: 8px; }
-.card h3 a { color: var(--text); text-decoration: none; }
-.card h3 a:hover { color: var(--primary); }
-.card-summary { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 12px; }
-.card-foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 10px; }
-.card-source { font-size: 0.78rem; color: var(--text-light); }
-.card-more { font-size: 0.82rem; color: var(--primary); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 4px; }
-.card-more span { font-size: 1rem; }
-.card-more:hover { text-decoration: underline; }
-.action-box { background: var(--accent-light); border: 1px solid #b7dfc0; border-radius: 12px; padding: 24px 28px; margin-bottom: 16px; }
-.action-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-.action-steps { list-style: none; counter-reset: steps; }
-.action-steps li { counter-increment: steps; padding: 8px 0 8px 40px; position: relative; font-size: 0.93rem; color: var(--text); line-height: 1.7; border-bottom: 1px dashed #c8e6c9; }
-.action-steps li:last-child { border-bottom: none; }
-.action-steps li::before { content: counter(steps); position: absolute; left: 0; top: 8px; width: 26px; height: 26px; background: var(--accent); color: #fff; border-radius: 50%; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.warn-box { background: var(--warn-light); border: 1px solid #f0c090; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; display: flex; gap: 12px; align-items: flex-start; }
-.warn-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-.warn-box p { font-size: 0.9rem; color: #7a3500; line-height: 1.7; }
-.info-box { background: var(--info-light); border: 1px solid #90c0e8; border-radius: 10px; padding: 20px 24px; margin-bottom: 20px; display: flex; gap: 12px; align-items: flex-start; }
-.info-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-.info-box p { font-size: 0.9rem; color: #0d3a6a; line-height: 1.7; }
-.quote-box { background: #fafafa; border-left: 4px solid var(--primary); padding: 18px 22px; margin: 16px 0; border-radius: 0 8px 8px 0; }
-.quote-box p { font-size: 0.9rem; color: var(--text-mid); font-style: italic; line-height: 1.7; }
-.quote-box .quote-from { font-size: 0.8rem; color: var(--text-light); margin-top: 6px; font-style: normal; }
-.stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
-.stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
-.stat-num { font-size: 1.6rem; font-weight: 900; color: var(--primary); line-height: 1.2; }
-.stat-label { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
-.compare-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
-.compare-table th { background: #f5f0eb; padding: 10px 14px; text-align: left; font-weight: 700; color: var(--text-mid); border-bottom: 2px solid var(--border); }
-.compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); }
-.compare-table tr:hover td { background: #fdf8f5; }
-footer { background: #3d3935; color: #b0a89e; text-align: center; padding: 32px 20px; font-size: 0.82rem; line-height: 1.8; }
-footer a { color: #e8a880; text-decoration: none; }
-@media (max-width: 640px) {
-  .header-inner { flex-wrap: wrap; padding-bottom: 10px; }
-  .container { padding: 20px 14px 40px; }
-  .card { padding: 18px 18px; }
-  .hero-box { padding: 20px 20px; }
-  .stat-row { grid-template-columns: 1fr; }
-}
-.fade-in { animation: fadeIn 0.6s ease-out; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.accordion-toggle { display: flex; align-items: center; gap: 6px; background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 0.82rem; font-weight: 700; color: var(--text-mid); cursor: pointer; transition: all 0.15s; margin-top: 10px; font-family: inherit; }
-.accordion-toggle:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
-.accordion-toggle .arrow { display: inline-block; transition: transform 0.25s ease; font-size: 0.75rem; }
-.accordion-toggle.open .arrow { transform: rotate(180deg); }
-.accordion-body { display: none; margin-top: 12px; border-top: 1px dashed var(--border); padding-top: 14px; }
-.accordion-body.open { display: block; animation: accFade 0.25s ease-out; }
-@keyframes accFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
-.abstract-label { font-size: 0.72rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-.abstract-text { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; background: #faf8f5; border-radius: 8px; padding: 14px 18px; border-left: 3px solid var(--primary); }
-.abstract-note { font-size: 0.75rem; color: var(--text-light); margin-top: 8px; font-style: italic; }
-
-/* ===== AFFILIATE BOX ===== */
-.aff-box {
-  background: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-  padding: 18px 22px;
-  margin: 14px 0;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.aff-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.aff-content { flex: 1; }
-.aff-label {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-.aff-title {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-  line-height: 1.4;
-}
-.aff-title a { color: var(--primary); text-decoration: none; }
-.aff-title a:hover { text-decoration: underline; }
-.aff-desc {
-  font-size: 0.82rem;
-  color: var(--text-mid);
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-.aff-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 0.82rem;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.15s;
-}
-.aff-cta:hover { background: var(--primary-dark); }
-.aff-cta-arrow { font-size: 0.75rem; }
-.aff-disclosure {
-  font-size: 0.68rem;
-  color: #aaa;
-  margin-top: 8px;
-  font-style: italic;
-}
-.aff-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin: 14px 0;
-}
-.aff-card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  transition: box-shadow 0.15s;
-}
-.aff-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-.aff-card-img {
-  font-size: 2rem;
-  margin-bottom: 8px;
-}
-.aff-card-name {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 4px;
-  line-height: 1.4;
-}
-.aff-card-price {
-  font-size: 0.78rem;
-  color: var(--accent);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.aff-card-btn {
-  display: inline-block;
-  background: var(--primary);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 700;
-  padding: 6px 14px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-.aff-card-btn:hover { background: var(--primary-dark); }
-@media (max-width: 640px) {
-  .aff-grid { grid-template-columns: 1fr; }
-  .aff-box { flex-direction: column; }
-}
+:root{--primary:#1a5276;--primary-light:#eaf2f8;--accent:#d4a017;--accent-light:#fef9e7;--bg:#f8f9fa;--card:#ffffff;--text:#2c3e50;--text-mid:#5d6d7e;--text-light:#95a5a6;--border:#e5e8ec;--warn:#e67e22;--warn-light:#fef5e7;--info:#27ae60;--info-light:#eafaf1}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px}
+.masthead{background:var(--primary);color:#fff;text-align:center;padding:20px 16px 12px}
+.masthead-date{font-size:.72rem;opacity:.7;letter-spacing:1px;text-transform:uppercase}
+.masthead-title{font-size:2rem;font-weight:900;letter-spacing:2px;margin:4px 0;font-family:Georgia,serif}
+.masthead-sub{font-size:.78rem;opacity:.8;letter-spacing:.5px}
+.masthead-rule{width:60px;height:3px;background:var(--accent);margin:10px auto 0}
+.tab-nav{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 2px 4px rgba(0,0,0,.04)}
+.tab-nav-inner{max-width:900px;margin:0 auto;display:flex;overflow-x:auto;padding:0 16px}
+.tab-nav a{display:block;padding:14px 20px;color:var(--text-mid);text-decoration:none;font-size:.85rem;font-weight:600;border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s}
+.tab-nav a:hover,.tab-nav a.active{color:var(--primary);border-bottom-color:var(--primary)}
+.container{max-width:900px;margin:0 auto;padding:24px 20px 48px}
+.carousel{position:relative;border-radius:16px;overflow:hidden;margin-bottom:32px;background:var(--card);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.carousel-slide{display:none;padding:40px 32px;min-height:220px;position:relative}
+.carousel-slide.active{display:block}
+.carousel-slide::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(26,82,118,.05) 0%,rgba(212,160,23,.05) 100%)}
+.carousel-tag{display:inline-block;background:var(--primary);color:#fff;font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:3px;margin-bottom:12px;letter-spacing:.5px;position:relative;z-index:1}
+.carousel-slide h2{font-size:1.5rem;font-weight:800;line-height:1.4;margin-bottom:12px;position:relative;z-index:1}
+.carousel-slide h2 a{color:var(--text);text-decoration:none}
+.carousel-slide h2 a:hover{color:var(--primary)}
+.carousel-slide p{font-size:.92rem;color:var(--text-mid);line-height:1.7;position:relative;z-index:1}
+.carousel-dots{display:flex;justify-content:center;gap:8px;padding:12px;background:var(--bg)}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .15s}
+.carousel-dot.active{background:var(--primary)}
+.mag-grid{display:grid;grid-template-columns:2fr 1fr;gap:24px;margin-bottom:32px}
+.mag-main{display:flex;flex-direction:column;gap:20px}
+.mag-sidebar{display:flex;flex-direction:column;gap:16px}
+.article-card{background:var(--card);border-radius:12px;overflow:hidden;border:1px solid var(--border);transition:box-shadow .15s}
+.article-card:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.article-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.article-img-1{background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%)}
+.article-img-2{background:linear-gradient(135deg,#ede7f6 0%,#d1c4e9 100%)}
+.article-img-3{background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%)}
+.article-img-4{background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%)}
+.article-img-5{background:linear-gradient(135deg,#fff8e1 0%,#ffecb3 100%)}
+.article-img-6{background:linear-gradient(135deg,#f3e5f5 0%,#e1bee7 100%)}
+.article-body{padding:20px}
+.article-tag{display:inline-block;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:3px;margin-bottom:8px;letter-spacing:.3px}
+.tag-heart{background:#fce4ec;color:#b71c1c}
+.tag-brain{background:#ede7f6;color:#4a148c}
+.tag-muscle{background:#e8f5e9;color:#1b5e20}
+.tag-sugar{background:#fff8e1;color:#e65100}
+.tag-sleep{background:#e3f2fd;color:#0d47a1}
+.tag-gut{background:#e0f2f1;color:#004d40}
+.tag-check{background:#f3e5f5;color:#6a1b9a}
+.tag-food{background:#e0f2f1;color:#004d40}
+.tag-data{background:#fef9e7;color:#7d6608}
+.article-body h3{font-size:1.05rem;font-weight:700;line-height:1.45;margin-bottom:8px}
+.article-body h3 a{color:var(--text);text-decoration:none}
+.article-body h3 a:hover{color:var(--primary)}
+.article-body p{font-size:.85rem;color:var(--text-mid);line-height:1.6}
+.article-meta{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:.75rem;color:var(--text-light)}
+.sidebar-card{background:var(--card);border-radius:10px;padding:16px;border:1px solid var(--border)}
+.sidebar-card h4{font-size:.82rem;font-weight:800;color:var(--primary);margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--primary)}
+.sidebar-card li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:.85rem;list-style:none}
+.sidebar-card li:last-child{border-bottom:none}
+.sidebar-card li a{color:var(--text);text-decoration:none;display:block}
+.sidebar-card li a:hover{color:var(--primary)}
+.sidebar-num{display:inline-block;width:20px;height:20px;background:var(--primary);color:#fff;border-radius:50%;font-size:.7rem;font-weight:700;text-align:center;line-height:20px;margin-right:8px}
+.action-box{background:var(--accent-light);border:1px solid #f9e79f;border-radius:10px;padding:18px 20px;margin-top:16px}
+.action-box h3{font-size:.9rem;font-weight:700;color:var(--warn);margin-bottom:10px}
+.action-steps{list-style:none;counter-reset:steps}
+.action-steps li{counter-increment:steps;padding:5px 0 5px 28px;position:relative;font-size:.85rem;color:var(--text);line-height:1.6}
+.action-steps li::before{content:counter(steps);position:absolute;left:0;top:5px;width:18px;height:18px;background:var(--warn);color:#fff;border-radius:50%;font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.aff-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-top:16px;display:flex;gap:14px;align-items:flex-start}
+.aff-icon{font-size:1.3rem;flex-shrink:0}
+.aff-label{font-size:.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.aff-title{font-size:.88rem;font-weight:700;line-height:1.4;margin-bottom:6px}
+.aff-title a{color:var(--text);text-decoration:none}
+.aff-title a:hover{color:var(--primary)}
+.aff-desc{font-size:.8rem;color:var(--text-mid);line-height:1.5;margin-bottom:8px}
+.aff-cta{display:inline-flex;align-items:center;gap:4px;background:var(--primary);color:#fff;font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:5px;text-decoration:none;transition:background .15s}
+.aff-cta:hover{background:#154360}
+.aff-disclosure{font-size:.65rem;color:#aaa;margin-top:6px;font-style:italic}
+.aff-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.aff-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center}
+.aff-card-name{font-size:.8rem;font-weight:700;margin-bottom:4px}
+.aff-card-name a{color:var(--text);text-decoration:none}
+.aff-card-price{font-size:.75rem;color:var(--info);font-weight:700;margin-bottom:6px}
+.aff-card-btn{display:inline-block;background:var(--primary);color:#fff;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:4px;text-decoration:none}
+.aff-card-btn:hover{background:#154360}
+.accordion-toggle{display:flex;align-items:center;gap:6px;background:none;border:1px solid var(--border);border-radius:6px;padding:6px 14px;font-size:.78rem;font-weight:700;color:var(--text-mid);cursor:pointer;transition:all .15s;margin-top:10px;font-family:inherit}
+.accordion-toggle:hover{background:var(--primary-light);border-color:var(--primary);color:var(--primary)}
+.accordion-toggle .arrow{display:inline-block;transition:transform .25s;font-size:.68rem}
+.accordion-toggle.open .arrow{transform:rotate(180deg)}
+.accordion-body{display:none;margin-top:10px;border-top:1px dashed var(--border);padding-top:12px}
+.accordion-body.open{display:block;animation:accFade .25s ease-out}
+@keyframes accFade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.abstract-label{font-size:.68rem;font-weight:700;color:var(--text-light);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.abstract-text{font-size:.84rem;color:var(--text-mid);line-height:1.7;background:var(--bg);border-radius:6px;padding:12px 14px;border-left:3px solid var(--primary)}
+.abstract-note{font-size:.68rem;color:var(--text-light);margin-top:6px;font-style:italic}
+footer{background:var(--primary);color:#fff;text-align:center;padding:24px 20px;font-size:.8rem;opacity:.9}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:640px){.mag-grid{grid-template-columns:1fr}.masthead-title{font-size:1.5rem}.carousel-slide{padding:24px 20px;min-height:180px}.carousel-slide h2{font-size:1.2rem}.tab-nav a{padding:12px 14px;font-size:.8rem}.aff-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div class="top-bar">🩺 50代からの健康ニュース — 今日からできることを、やさしく届けます</div>
+<div class="masthead">
+  <div class="masthead-date">2026年6月20日 土曜日</div>
+  <div class="masthead-title">健康リテラシー</div>
+  <div class="masthead-sub">50代の健康を、医学論文からやさしく</div>
+  <div class="masthead-rule"></div>
+</div>
 
-<header>
-  <div class="header-inner">
-    <div>
-      <div class="logo">健康リテラシー</div>
-      <div class="logo-sub">50歳すぎたらここを見る</div>
-    </div>
-    <div class="date-now" id="dateNow"></div>
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <a href="#today" class="active">トップ</a>
+    <a href="#heart">心臓・血管</a>
+    <a href="#brain">脳・認知</a>
+    <a href="#muscle">筋肉・骨</a>
+    <a href="#sugar">糖・脂質</a>
+    <a href="#checkup">検査・数値</a>
+    <a href="#sleep">睡眠</a>
+    <a href="#gut">腸内フローラ</a>
+    <a href="#eyes">目の健康</a>
   </div>
-  <div class="nav-wrap">
-    <ul>
-      <li><a href="#today-today" class="active">今日の1本</a></li>
-      <li><a href="#heart">血管・心臓</a></li>
-      <li><a href="#brain">脳・認知</a></li>
-      <li><a href="#muscle">筋肉・骨</a></li>
-      <li><a href="#sugar">糖・脂質</a></li>
-      <li><a href="#checkup">検査・数値</a></li>
-      <li><a href="#sleep">睡眠</a></li>
-      <li><a href="#gut">腸内フローラ</a></li>
-      <li><a href="#eyes">目の健康</a></li>
-      <li><a href="#action">今日からできること</a></li>
-    </ul>
-  </div>
-</header>
+</div>
 
 <div class="container">
 
-  <!-- HERO -->
-  <div class="hero-box fade-in">
-    <h2>📰 今日の健康ニュース</h2>
-    <p>
-      <strong>ウェアラブルデバイスとスマホアプリを使った運動が、心臓病患者の回復を助ける</strong> という研究結果が、アメリカ心臓協会の専門誌に発表されました。
-      専門的な言葉を抜きにすると — <strong>「歩数を数字で見ながら運動すると、心臓が強くなる」</strong> ということです。
-    </p>
-  </div>
-
-  <!-- ===== TODAY'S PICK ===== -->
-  <div class="section" id="today-today">
-    <div class="section-title">🎯 今日の1本 — これだけ読むなら</div>
-
-    <div class="card fade-in">
-      <span class="card-tag tag-heart">血管・心臓</span>
-      <h3><a href="https://doi.org/10.1161/JAHA.125.044985" target="_blank">「歩いてる」だけじゃなかった — 歩数を"見える化"すると心臓が強くなる</a></h3>
-      <div class="card-summary">
-        アメリカ心臓協会誌（JAHA）に掲載された研究。心臓病や脳卒中を患った約2,900人分のデータをまとめた結果、<strong>ウェアラブル（歩数計・スマートウォッチなど）で歩数を確認しながら運動したグループは、しなかったグループより有意に身体活動量が増えた</strong>とのこと。「意識する」だけで変わるという、シンプルですが強力な結果です。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（Background）</div>
-        <div class="abstract-text">身体活動の不足は心血管疾患の主要なリスク因子である。ウェアラブルデバイスやスマートフォンは、コスト、アクセス可能性、スケールの面で身体活動を変える可能性を秘めている。このシステマティックレビューは、スマートフォンとウェアラブルを用いた介入が心血管疾患患者の身体活動を増進させるのに有効かどうかを検証することを目的とした。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Methods）</div>
-        <div class="abstract-text">PubMed、Cochrane、Web of Scienceデータベースから、2000年1月以降に発表されたRCTを検索。ウェアラブルやスマートフォンアプリを用いて心血管疾患患者の身体活動を増進させる試験が対象。非RCTやスマートフォン/ウェアラブルを含まない介入は除外。バイアスリスクはCochrane Collaborationツールで評価。メタ分析により、1日あたりの歩数、距離、酸素消費量、中等度〜高強度身体活動（分/日）への統合効果を算出。14件のRCTが最終的に対象に含まれた。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Results）</div>
-        <div class="abstract-text">スマートフォンとウェアラブル群は、対照群と比較して1日あたり平均1,097.4歩の増加（95% CI: 409.2〜1,785.6; P=0.0018）および中等度〜高強度身体活動が1日あたり平均3.9分の増加（95% CI: 0.2〜7.6; P=0.0413）を示した。効果はデバイスの種類や患者のサブグループ間で一貫していた。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Conclusion）</div>
-        <div class="abstract-text">このメタ分析は、スマートフォンとウェアラブルデバイスを用いた介入が心血管疾患患者の身体活動を増加させるのに有効であることを示した。ウェアラブルとスマートフォンは、身体活動を増進させるためのアクセスしやすく個別化された介入手段を提供し得る。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Journal of the American Heart Association · 2026.06.17</span>
-        <a href="https://doi.org/10.1161/JAHA.125.044985" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
+  <!-- Carousel -->
+  <div class="carousel">
+    <div class="carousel-slide active">
+      <span class="carousel-tag">❤️ 血管・心臓</span>
+      <h2><a href="#today-today">「歩いてる」だけじゃなかった — 歩数を"見える化"すると心臓が強くなる</a></h2>
+      <p>アメリカ心臓協会誌（JAHA）に掲載。ウェアラブルで歩数を確認しながら運動したグループは、有意に身体活動量が増えたとのこと。</p>
     </div>
-
-    <div class="warn-box">
-      <div class="warn-icon">💡</div>
-      <p><strong>今日からできること：</strong>手持ちのスマートフォンに歩数計アプリがありますか？　今日の歩数を1回だけ構いません、寝る前に確認してみてください。「今日は何人くらい歩いただろう？」と意識するだけで、明日ちょっとだけ歩きたくなります。</p>
+    <div class="carousel-slide">
+      <span class="carousel-tag">🧠 脳・認知</span>
+      <h2><a href="#brain">AIが脳の活動を"再現" — 認知症研究に光</a></h2>
+      <p>BrainWorldモデルが最大400フレームの安定した4D fMRI軌跡を生成。認知症の早期発見に応用へ。</p>
     </div>
-
-    <!-- アフィリエイト：歩数計・スマートウォッチ -->
-    <div class="aff-box">
-      <div class="aff-icon">🛒</div>
-      <div class="aff-content">
-        <div class="aff-label">おすすめ商品</div>
-        <div class="aff-title"><a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" target="_blank">歩数計・スマートウォッチで習慣づけ</a></div>
-        <div class="aff-desc">研究でも使われた「歩数の見える化」。まずは手軽な歩数計から始めてみませんか？</div>
-        <a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" class="aff-cta" target="_blank">Amazonで見る <span class="aff-cta-arrow">→</span></a>
-        <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
-      </div>
+    <div class="carousel-slide">
+      <span class="carousel-tag">💪 筋肉・骨</span>
+      <h2><a href="#muscle">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h2>
+      <p>SRとミトコンドリアの共局在が加齢で乱れ、エネルギー供給効率が落ちることが判明。</p>
+    </div>
+    <div class="carousel-dots">
+      <span class="carousel-dot active" onclick="showSlide(0)"></span>
+      <span class="carousel-dot" onclick="showSlide(1)"></span>
+      <span class="carousel-dot" onclick="showSlide(2)"></span>
     </div>
   </div>
 
-  <!-- ===== HEART ===== -->
-  <div class="section" id="heart">
-    <div class="section-title">❤️ 血管・心臓 — 「血管年齢」を知ろう</div>
+  <!-- Main Grid -->
+  <div class="mag-grid">
+    <!-- Main -->
+    <div class="mag-main">
 
-    <div class="card">
-      <span class="card-tag tag-heart">血管・心臓</span>
-      <h3><a href="https://doi.org/10.21037/jtd-2025-aw-2208" target="_blank">心臓の手術前に「気分」が不安定だと、術後も長引く</a></h3>
-      <div class="card-summary">
-        心臓手術を受ける患者を調べた研究。<strong>術前にうつ病や不安障害などの精神疾患を合併していると、術後の回復が遅く、入院期間が長くなる</strong>傾向があることが分かりました。
+      <!-- Featured: 歩数×心臓 -->
+      <div class="article-card" id="today-today">
+        <div class="article-img article-img-1">❤️</div>
+        <div class="article-body">
+          <span class="article-tag tag-heart">血管・心臓</span>
+          <h3><a href="#">「歩いてる」だけじゃなかった — 歩数を"見える化"すると心臓が強くなる</a></h3>
+          <p>アメリカ心臓協会誌（JAHA）に掲載された研究。心臓病や脳卒中を患った約2,900人分のデータをまとめた結果、<strong>ウェアラブルで歩数を確認しながら運動したグループは、しなかったグループより有意に身体活動量が増えた</strong>とのこと。</p>
+          <div class="article-meta">
+            <span>Journal of the American Heart Association · 2026.06.17</span>
+            <a href="https://doi.org/10.1161/JAHA.125.044985" style="color:var(--primary);font-weight:700;">原著論文 →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-label">抄訳（Background）</div>
+            <div class="abstract-text">身体活動の不足は心血管疾患の主要なリスク因子である。ウェアラブルデバイスやスマートフォンは、コスト、アクセス可能性、スケールの面で身体活動を変える可能性を秘めている。</div>
+            <div class="abstract-label" style="margin-top:10px">抄訳（Results）</div>
+            <div class="abstract-text">スマートフォンとウェアラブル群は、対照群と比較して1日あたり平均1,097.4歩の増加（95% CI: 409.2〜1,785.6; P=0.0018）および中等度〜高強度身体活動が1日あたり平均3.9分の増加を示した。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
+          </div>
+          <div class="aff-box" style="margin-top:12px;">
+            <div class="aff-icon">🛒</div>
+            <div>
+              <div class="aff-label">おすすめ商品</div>
+              <div class="aff-title"><a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" target="_blank">Xiaomi Smart Band 10 — 歩数計・スマートウォッチで習慣づけ</a></div>
+              <a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" class="aff-cta" target="_blank">Amazonで見る →</a>
+              <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（Background）</div>
-        <div class="abstract-text">精神疾患はCDC（米国疾病予防管理センター）において地球規模の公衆衛生問題として認識されている。従来の心臓外科のリスク評価ツールは精神疾患の評価を含んでいない場合が多い。本研究は、既存の精神疾患（精神病性障害・気分障害・不安障害・行動障害・パーソナリティ障害を含む）が心臓血管手術の術後アウトカムに与える影響を検討した。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Methods）</div>
-        <div class="abstract-text">2016年〜2018年のNationwide Readmissions Database（NRD）を使用。心臓血管手術を受けた患者を特定し、診断コードで精神疾患の有無を分類。傾向スコアマッチング（PSM）で共変量を均衡させ、合併症・院内死亡率・30日・90日再入院との関連を評価。その後、多変量ロジスティック回帰で独立した関連を評価した。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Results）</div>
-        <div class="abstract-text">心臓血管手術を受けた844,830件の退院のうち、165,597件（20%）に精神疾患があった。PSM後の比較では、精神疾患あり群の方が院内死亡率は低かった（2.3% vs 3.2%、P&lt;0.001）が、これは手術を受けた者が精神疾患患者の中でも比較的健康なためと考えられる。しかし、平均入院期間は長かった（12日 vs 11日、P&lt;0.001）。精神疾患は合併症（aOR: 1.16、95% CI: 1.14〜1.19）、30日再入院（aOR: 1.17）、90日再入院（aOR: 1.18）のオ比も高かった。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Conclusion）</div>
-        <div class="abstract-text">外科医は、この脆弱な集団のアウトカムを改善するために、精神医学的健康状態の最適化と精神保健専門家の関与を検討すべきである。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
+
+      <!-- 精神疾患×心臓手術 -->
+      <div class="article-card" id="heart">
+        <div class="article-img article-img-1">❤️</div>
+        <div class="article-body">
+          <span class="article-tag tag-heart">血管・心臓</span>
+          <h3><a href="#">心臓の手術前に「気分」が不安定だと、術後も長引く</a></h3>
+          <p>術前にうつ病や不安障害を合併していると、術後の回復が遅く入院期間が長くなる傾向が。</p>
+          <div class="article-meta">
+            <span>Journal of Thoracic Disease · 2026.05.31</span>
+            <a href="https://doi.org/10.21037/jtd-2025-aw-2208" style="color:var(--primary);font-weight:700;">原著論文 →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-label">抄訳（Results）</div>
+            <div class="abstract-text">心臓血管手術を受けた844,830件の退院のうち、165,597件（20%）に精神疾患があった。精神疾患あり群は平均入院期間が長かった（12日 vs 11日、P&lt;0.001）。合并症（aOR: 1.16）、30日再入院（aOR: 1.17）、90日再入院（aOR: 1.18）のオ比も高かった。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
       </div>
-      <div class="card-foot">
-        <span class="card-source">Journal of Thoracic Disease · 2026.05.31</span>
-        <a href="https://doi.org/10.21037/jtd-2025-aw-2208" class="card-more" target="_blank">原著論文 <span>→</span></a>
+
+      <!-- BrainWorld -->
+      <div class="article-card" id="brain">
+        <div class="article-img article-img-2">🧠</div>
+        <div class="article-body">
+          <span class="article-tag tag-brain">脳科学</span>
+          <h3><a href="#">AIが脳の活動を"再現" — 認知症研究に光</a></h3>
+          <p>BrainWorldモデルが最大400フレームの安定した4D fMRI軌跡を生成。認知症の早期発見に。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.NC) · 2026.06.16</span>
+            <a href="https://arxiv.org/abs/2606.17742v1" style="color:var(--primary);font-weight:700;">プレプリント →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-label">抄訳（要約の日本語訳）</div>
+            <div class="abstract-text">BrainWorldは構造的事前知識で条件づけられた全脳4D fMRI動力学の生成モデルである。sMRIを被験者レベルの解剖学的コンテキストとして用い、デノイシングプロセスに構造情報を統合する。22の多様なコホートで評価され、最大400フレームの安定した4D fMRI軌跡を生成。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <div class="card">
-      <span class="card-tag tag-heart">呼吸器</span>
-      <h3><a href="https://doi.org/10.21037/jtd-2026-1-0229" target="_blank">中国のデータに見る「肺の病気」の男女差 — 日本の私たちにも関係ある話</a></h3>
-      <div class="card-summary">
-        世界保健のビッグデータ（GBD 2023）から、中国における間質性肺疾患の1990〜2023年の傾向を分析。<strong>男性より女性で増加率が高い</strong>という意外な結果に。
+    <!-- Sidebar -->
+    <div class="mag-sidebar">
+      <div class="sidebar-card">
+        <h4>🔥 人気記事ランキング</h4>
+        <ul>
+          <li><a href="#today-today"><span class="sidebar-num">1</span>歩数を"見える化"すると心臓が強くなる</a></li>
+          <li><a href="#sleep"><span class="sidebar-num">2</span>睡眠不足が血管を傷つける</a></li>
+          <li><a href="#gut"><span class="sidebar-num">3</span>腸内細菌叢が免疫力を左右</a></li>
+          <li><a href="#eyes"><span class="sidebar-num">4</span>加齢黄斑変性 — 失明原因第4位</a></li>
+          <li><a href="#brain"><span class="sidebar-num">5</span>AIが脳の活動を"再現"</a></li>
+        </ul>
       </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（Background）</div>
-        <div class="abstract-text">間質性肺疾患・肺サルコイドーシス（ILD/PS）は、地球規模の高齢化・空氣汚染・COVID-19後の呼吸器後遺症の中で公衆衛生的重要性が増しているびまん性肺実質障害の一群。中国は世界最大の高齢人口と複雑な環境曝露プロファイルを有し、特有の課題に直面しているが、国際トレンドとの最新の比較は不足している。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Methods）</div>
-        <div class="abstract-text">年間年齢標準化発症率（ASIR）、年齢標準化死亡率（ASDR）、年齢標準化障害調整生存年率（ASDALY）をIHME GBD Results Toolから性別に抽出。長期推移は対数線形回帰から推定年間変化率（EAPC）で定量化。中国のASDRの変動点は区分回帰で評価。死亡率・発症率比（MIR）と末端感度分析により2023年の変動の頑健性を検証。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Results）</div>
-        <div class="abstract-text">2023年、世界のASIRは10万人あたり4.75、ASDRは2.40に対し、中国はASIR 2.12、ASDR 0.46と低かった。中国のASDRは1990〜2023年に0.18から0.46に増加（EAPC 3.55%、95% CI: 3.27〜3.82）し、世界平均（1.96%）を上回った。死亡率の最も急速な上昇は中国の女性で見られた（EAPC 5.18%、95% CI: 4.84〜5.51）。これは中国男性（2.60%）や世界女性（2.05%）より顕著に高かった。2011年前後に変動点が示唆された。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Conclusions）</div>
-        <div class="abstract-text">ILD/PS負荷は中国において30年間着実に上昇しており、死亡率は世界平均より急速に増加し、特に女性で著しい。対処として、一次・二次医療での高解像度CT（HRCT）や多職種診断チームへのアクセス拡大、バイオマス・大気汚染曝露がある高齢女性を対象とした症例発見プログラムの実施が提案されている。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Journal of Thoracic Disease · 2026.05.31</span>
-        <a href="https://doi.org/10.21037/jtd-2026-1-0229" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
-    </div>
 
-    <div class="info-box">
-      <div class="info-icon">🩻</div>
-      <p><strong>健康診断の「血管年齢」って何？</strong><br>血管年齢は、脈波伝播速度（PWV）という検査で推定します。数値が実年齢より10歳以上高い場合、動脈硬化が進んでいる可能性があります。50代で血管年齢65歳なら、生活習慣の見直し時期です。</p>
-    </div>
+      <div class="sidebar-card">
+        <h4>📋 今日からできること</h4>
+        <ul>
+          <li><a href="#">今日の歩数を1回だけ確認する</a></li>
+          <li><a href="#">寝る1時間前にスマホを置く</a></li>
+          <li><a href="#">食事に卵1個を追加する</a></li>
+          <li><a href="#">健診結果の5項目に印をつける</a></li>
+        </ul>
+      </div>
 
-    <!-- アフィリエイト：人間ドック -->
-    <div class="aff-box">
-      <div class="aff-icon">🏥</div>
-      <div class="aff-content">
-        <div class="aff-label">おすすめサービス</div>
-        <div class="aff-title"><a href="https://example.com/dock" target="_blank">血管年齢が気になるなら、人間ドックで詳しくチェック</a></div>
-        <div class="aff-desc">心臓ドック・脳ドックコースのある健診センターを予約。早期発見が何よりの予防です。</div>
-        <a href="https://example.com/dock" class="aff-cta" target="_blank">健診を予約する <span class="aff-cta-arrow">→</span></a>
-        <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== BRAIN ===== -->
-  <div class="section" id="brain">
-    <div class="section-title">🧠 脳・認知 — 「最近物忘れが…」の先にあるもの</div>
-
-    <div class="card">
-      <span class="card-tag tag-brain">脳科学</span>
-      <h3><a href="https://arxiv.org/abs/2606.17742v1" target="_blank">AIが脳の活動を"再現" — 認知症研究に光</a></h3>
-      <div class="card-summary">
-        中国の研究チームが、脳のMRI画像から「この人の脳は今こう活動しているはず」とAIで再現する技術を開発。22の異なるデータセットで検証し、<strong>最大400フレーム（約6分間）の脳活動を安定して生成</strong>することに成功。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">全脳4D fMRI生成は機能的脳動力学のモデリングに有用であるが、既存のfMRI基盤モデルは主に表現学習や下流ターゲットへの予測を目的とし、条件付き予測生成はほとんど行われていない。我々は「BrainWorld」を導入する。これは構造的事前知識で条件づけられた全脳4D fMRI動力学の生成モデルである。BrainWorldはsMRIを被験者レベルの解剖学的コンテキストとして用い、デノイシングプロセスに構造情報を統合する（並列モダリティとして扱うのではなく）。22の多様なコホートと脳状態にわたるデータセットで評価され、最大400フレームの安定した4D fMRI軌跡を生成。生成例によるデータ拡張を通じて下流性能を向上させ、ベースラインを上回る転移可能なマルチモーダル表現を学習した。これらの結果は、BrainWorldを長時間の脳動力学モデリングとマルチモーダル表現学習のための条件付き生成基盤として確立するものである。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">arXiv (q-bio.NC) · 2026.06.16</span>
-        <a href="https://arxiv.org/abs/2606.17742v1" class="card-more" target="_blank">プレプリント <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="card-tag tag-brain">神経科学</span>
-      <h3><a href="https://arxiv.org/abs/2606.17736v1" target="_blank">「耳鳴り」は脳が頑張っている証拠？ — 10年かけて分かったこと</a></h3>
-      <div class="card-summary">
-        「キーン」という耳鳴り。従来は「異常な騒音」とされてきましたが、10年前に提唱された新しい理論では、<strong>「脳が難聴の分を補おうとして、感覚を過敏にしている」</strong>と解釈します。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">主観的耳鳴り——外部音響刺激がないにもかかわらず音を知覚する現象——は、聴覚神経科学において最も議論の多い現象の一つである。2016年、確率的共振（SR）モデルが耳鳴り関連の神経活動亢進の代替説明として導入された。このモデルは、難聴後に情報伝達を回復させるために内部で生成される神経ノイズが適応的に上方制御されると提案した。自発活動の増加を「不適応的」と解釈する代わりに、モデルはそれを感覚閾値付近での信号検出を強化する機能的メカニズムとして再フレーミングし、耳鳴りは適応的感覚最適化の副作用として発生するとした。この10年間で、この枠組みは現象論的仮説から情報理論、適応的信號検出、多チャンネル聴覚処理、クロスモーダル可塑性を結びつける広範な神経計算理論へと発展した。計算モデリング、大規模臨床解析、動物実験が、特定のノイズ条件下での検出能の改善や周波数特異的幻聴を含む主要な予測を収束的に支持してきた。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">arXiv (q-bio.NC) · 2026.06.16</span>
-        <a href="https://arxiv.org/abs/2606.17736v1" class="card-more" target="_blank">プレプリント <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="quote-box">
-      <p>「認知症の約40%は、生活習慣の改善で予防できる可能性がある」</p>
-      <div class="quote-from">— ランセット認知症予防委員会（2020年報告、2024年改訂）</div>
-    </div>
-  </div>
-
-  <!-- ===== MUSCLE ===== -->
-  <div class="section" id="muscle">
-    <div class="section-title">💪 筋肉・骨 — 「フレイル」を知っていますか？</div>
-
-    <div class="card">
-      <span class="card-tag tag-muscle">老化</span>
-      <h3><a href="https://arxiv.org/abs/2606.17457v1" target="_blank">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h3>
-      <div class="card-summary">
-        骨格筋の細胞内には、筋小胞体（SR）とミトコンドリアが密接に連携しています。加齢とともにこの「配線」が乱れ、<strong>筋肉のエネルギー供給効率が落ちる</strong>ことが分かりました。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">骨格筋は加齢に伴い解剖学的、超微構造的、さらに生化学的に顕著な変化を遂げる。筋肉量の減少であるサルコペニアは、高齢者の機能低下やフレイルの主要因子である。成人骨格筋線維では、筋小胞体（SR）とミトコンドリアは筋膜（T-小管を形成）に沿って最も複雑で精密な分布を示し、これは筋肉機能に不可欠である。健康な若い筋肉組織では、SRとミトコンドリア膜の近接接触部位はミトコンドリア関連膜（MAMs）と呼ばれる。近年の文献は、MAMsネットワークがCa2+シグナル伝達、脂質輸送、活性酸素種などのシグナル分子の局在を調節することで筋肉の正常な機能に重要な役割を果たしていることを強調している。いくつかの結合機構がMAMsネットワークを安定させるために提案されており、古典的にはミトフューシン（MFN1およびMFN2）がある。骨格筋のMAMsは興奮-代謝カップリングの精度を保証し、空間的なエネルギー供給を促進するという新たなコンセンサスがある。しかし、加齢に伴いSRとミトコンドリアの共局在およびクロストークの精度が影響を受ける。本レビューでは、健康と疾患、特に老化の観点からMAMsネットワークの構造と機能に関する現在の文献を批判的に検討し、運動、栄養、栄養補助食品、薬物療法がMAMsの損失を軽減し、加齢の進行を遅らせる可能性を評価した。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">arXiv (q-bio.SC) · 2026.06.16</span>
-        <a href="https://arxiv.org/abs/2606.17457v1" class="card-more" target="_blank">プレプリント <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="stat-row">
-      <div class="stat-box"><div class="stat-num">30%</div><div class="stat-label">80歳以上のサルコペニア有病率</div></div>
-      <div class="stat-box"><div class="stat-num">毎年1%</div><div class="stat-label">40歳以降の筋肉量減少</div></div>
-      <div class="stat-box"><div class="stat-num">2倍</div><div class="stat-label">運動＋タンパク質の筋力維持効果</div></div>
-    </div>
-
-    <div class="info-box">
-      <div class="info-icon">🦴</div>
-      <p><strong>骨粗鬆症は「骨のコレステロール」？</strong><br>骨密度の低下は、血管のコレステロールと同じように「自覚症状がないまま進行する」のが怖いところ。50代女性の3人に1人が骨粗鬆症といわれます。カルシウム＋ビタミンD＋適度な運動が基本です。</p>
-    </div>
-
-    <!-- アフィリエイト：サプリメント -->
-    <div class="aff-grid">
-      <div class="aff-card">
-        <div class="aff-card-img">💊</div>
-        <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" target="_blank">HMBサプリメント</a></div>
-        <div class="aff-card-price">¥3,000〜</div>
-        <a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
-      </div>
-      <div class="aff-card">
-        <div class="aff-card-img">🥛</div>
-        <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" target="_blank">ビタミンD+カルシウム</a></div>
-        <div class="aff-card-price">¥1,500〜</div>
-        <a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
-      </div>
-    </div>
-    <div class="aff-disclosure" style="text-align:center">※ アフィリエイトリンクを含みます</div>
-  </div>
-
-  <!-- ===== SUGAR ===== -->
-  <div class="section" id="sugar">
-    <div class="section-title">🍚 糖・脂質 — メタボの向こう側</div>
-
-    <div class="card">
-      <span class="card-tag tag-food">食事・がん</span>
-      <h3><a href="https://doi.org/10.3389/fonc.2026.1823812" target="_blank">「地球に優しい食事」ががんも防ぐ — EAT-Lancet食の効果</a></h3>
-      <div class="card-summary">
-        「EAT-Lancet食」（野菜・全粒穀物・豆類中心、赤身肉・加工食品を控える）をしっかり守っている人ほど、<strong>がんの発症率・死亡率が有意に低い</strong>というメタ分析結果。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（Background）</div>
-        <div class="abstract-text">がんは世界的な公衆衛生上の主要な脅威である。食事は予防のために変更可能な鍵となる因子である。本研究はEAT-Lancet食への遵守度とがん発症率・死亡率との関連を検討した。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Methods）</div>
-        <div class="abstract-text">PubMed、Web of Science、Embase、Cochrane Libraryを体系的に検索し、2019年1月から2025年9月に発表されたコホート研究を抽出。主要分析では、EAT-Lancet食遵守スコアとがんアウトカムとの関連について調整ハザード比（HR）と95%信頼区間をプール。亜集団分析をがんタイプと遵守レベルで実施。15件のコホート研究が対象に含まれた。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Results）</div>
-        <div class="abstract-text">EAT-Lancet食遵守スコアが高いほど、全体がん発症率（HR=0.90、95% CI: 0.84〜0.95、P&lt;0.001）および全体がん死亡率（HR=0.92、95% CI: 0.90〜0.95、P&lt;0.001）が低かった。部位特異的な関連が最も明確だったのは肺がん発症率（HR=0.93）および肺がん死亡率（HR=0.94）であった。乳がん、大腸がん、前立腺がんでは統計的に有意な関連は見られなかった。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Conclusion）</div>
-        <div class="abstract-text">EAT-Lancet食への高い遵守は、overallがん発症率および死亡率の低下と関連しており、特に肺がんで最も明確な関連が観察された。異質性、残余交絡、コホート間の遵守評価の差異があるため、解釈は慎重に行うべきである。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Frontiers in Oncology · 2026.06.01</span>
-        <a href="https://doi.org/10.3389/fonc.2026.1823812" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="card-tag tag-sugar">生活習慣病</span>
-      <h3><a href="https://doi.org/10.3389/fonc.2026.1838256" target="_blank">電子タバコは「安全」じゃない — 口腔の遺伝子に異常</a></h3>
-      <div class="card-summary">
-        電子タバコの使用が、口腔上皮の遺伝子発現に広範な異常を引き起こすことを確認。<strong>「紙タバコよりマシ」ではなく、別のリスク</strong>があることが示唆されています。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（Introduction）</div>
-        <div class="abstract-text">電子タバコ（e-cig）の使用（ビaping）は、上皮組織における遺伝子や分子経路の異常調節と関連づけられている。しかし、ビaping関連のトランスクリプトーム変化に対する用量と製品特性の相対的寄与は体系的に評価されていない。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Methods）</div>
-        <div class="abstract-text">ビapers（電子タバコ使用者）、紙巻きタバコ喫煙者、非使用者から口腔上皮細胞を採取しRNAシーケンシングを実施。共変量調整limma-voomモデリングとFDR制御で差次的遺伝子発現を評価。ビaping関連の用量指標（累積e-liquid、累積e-ニコチン、使用年数、血漿コチニン）および喫煙関連の用量指標（パックイヤー、血漿コチニン）が転写変化をどの程度説明するかを評価。さらに、デバイスの世代とフレーバー種類が遺伝子発現の変動に寄与するかを検討。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Results）</div>
-        <div class="abstract-text">ビapingと喫煙の両方が、非使用者と比較してトランスクリプトームの異常調節と関連した。ビapersではDEGsの27.6%が全ての用量指標で一致した一方、残りの用量反応パターンは不均一だった。デバイス世代とフレーバー種類は、独立した遺伝子発現変動成分を説明した。喫煙関連DEGsの54.1%は用量指標全体で一貫して影響を受け、より統一された用量依存応答を反映していた。</div>
-        <div class="abstract-label" style="margin-top:12px">抄訳（Discussion）</div>
-        <div class="abstract-text">これらの知見は、ビaping関連のトランスクリプトーム異常調節が用量と製品特性の複合的影響を反映することを示唆し、ビapingと喫煙の分子障害の構造的差異を浮き彫りにしている。多次元曝露指標と製品特性を規制評価に組み込むことで、電子タバコ曝露の生物学的複雑性をより正確に捉え、臨床・公衆衛生・規制上の決定に資する可能性がある。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Frontiers in Oncology · 2026.06.01</span>
-        <a href="https://doi.org/10.3389/fonc.2026.1838256" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
-    </div>
-
-    <table class="compare-table">
-      <tr><th>検査項目</th><th>要注意</th><th>備考</th></tr>
-      <tr><td>HbA1c（糖化ヘモグロビン）</td><td>6.5%以上</td><td>糖尿病の診断基準</td></tr>
-      <tr><td>LDLコレステロール</td><td>140mg/dL以上</td><td>「悪玉」が血管に溜まる</td></tr>
-      <tr><td>中性脂肪</td><td>150mg/dL以上</td><td>食べ過ぎ・飲み過ぎが原因のことが多い</td></tr>
-      <tr><td>血圧（収縮期）</td><td>140mmHg以上</td><td>家庭血圧で135以上も要注意</td></tr>
-    </table>
-
-    <!-- アフィリエイト：自宅検査キット -->
-    <div class="aff-box">
-      <div class="aff-icon">🩸</div>
-      <div class="aff-content">
-        <div class="aff-label">おすすめ商品</div>
-        <div class="aff-title"><a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank">自宅で簡単チェック｜血液検査キット</a></div>
-        <div class="aff-desc">HbA1c・コレステロール・肝機能を自宅で採血して検査。忙しい人にもおすすめ。</div>
-        <a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" class="aff-cta" target="_blank">Amazonで見る <span class="aff-cta-arrow">→</span></a>
-        <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
+      <div class="aff-box">
+        <div class="aff-icon">🏥</div>
+        <div>
+          <div class="aff-label">おすすめサービス</div>
+          <div class="aff-title"><a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" target="_blank">全国のクリニック・健診センターから探す（A8.net）</a></div>
+          <a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" class="aff-cta" target="_blank">健診を探す →</a>
+          <div class="aff-disclosure">※ A8.netアフィリエイトリンクを含みます</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== CHECKUP ===== -->
-  <div class="section" id="checkup">
-    <div class="section-title">🔍 検査・数値 — 健康診断の「ここ」を見る</div>
+  <!-- Second Row -->
+  <div class="mag-grid">
+    <div class="mag-main">
 
-    <div class="card">
-      <span class="card-tag tag-check">公衆衛生</span>
-      <h3><a href="https://doi.org/10.1111/aogs.70280" target="_blank">子癇（しかん）の治療、10年でどう変わったか — ノウェイの教訓</a></h3>
-      <div class="card-summary">
-        妊娠高血圧腎症（子癇）は、出産前後の命に関わる病気。ノウェイの10年間の大規模調査で、<strong>硫酸マグネシウムの使用や早期帝王切開の普及により死亡率は低下</strong>したが、依然として改善の余地があることが分かりました。
+      <!-- 耳鳴り -->
+      <div class="article-card">
+        <div class="article-img article-img-2">🧠</div>
+        <div class="article-body">
+          <span class="article-tag tag-brain">神経科学</span>
+          <h3><a href="#">「耳鳴り」は脳が頑張っている証拠？ — 10年かけて分かったこと</a></h3>
+          <p>確率的共振モデルが提唱から10年。動物実験や臨床データが理論を支持しつつあります。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.NC) · 2026.06.16</span>
+            <a href="https://arxiv.org/abs/2606.17736v1" style="color:var(--primary);font-weight:700;">プレプリント →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">2016年に提唱された確率的共振（SR）モデルは、難聴後に情報伝達を回復させるために内部の神経ノイズが適応的に上方制御されると提案した。自発活動の増加を「不適応的」ではなく「信号検出を強化する機能的メカニズム」として再フレーミングした。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
       </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">ノウェイにおける2013年から2022年までの10年間の子癇（妊娠高血圧腎症）治療に関する大規模監査。硫酸マグネシウムの使用や早期帝王切開の普及により死亡率は低下したが、依然として改善の余地があることが明らかになった。治療の質向上のための重要な学習ポイントが抽出されている。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
+
+      <!-- 筋肉・骨 -->
+      <div class="article-card" id="muscle">
+        <div class="article-img article-img-3">💪</div>
+        <div class="article-body">
+          <span class="article-tag tag-muscle">老化</span>
+          <h3><a href="#">筋肉の中の「配線」が加齢で乱れる — サルコペニアの新説</a></h3>
+          <p>SRとミトコンドリアの共局在が加齢で乱れ、エネルギー供給効率が落ちる。運動・栄養・薬物療法で維持可能。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.SC) · 2026.06.16</span>
+            <a href="https://arxiv.org/abs/2606.17457v1" style="color:var(--primary);font-weight:700;">プレプリント →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">骨格筋線維において、筋小胞体（SR）とミトコンドリアは筋膜に沿って配置されている。MAMsネットワークはCa2+シグナル伝達、脂質輸送、活性酸素種の局在を調節し、筋肉の正常な機能に役割を果たしている。加齢に伴い共局在およびクロストークの精度が影響を受ける。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+          <div class="aff-grid" style="margin-top:12px;">
+            <div class="aff-card">
+              <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" target="_blank">HMBサプリメント</a></div>
+              <div class="aff-card-price">¥3,000〜</div>
+              <a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
+            </div>
+            <div class="aff-card">
+              <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" target="_blank">ビタミンD+カルシウム</a></div>
+              <div class="aff-card-price">¥1,500〜</div>
+              <a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
+            </div>
+          </div>
+          <div class="aff-disclosure" style="text-align:center">※ アフィリエイトリンクを含みます</div>
+        </div>
       </div>
-      <div class="card-foot">
-        <span class="card-source">Acta Obstet Gynecol Scand · 2026.06.17</span>
-        <a href="https://doi.org/10.1111/aogs.70280" class="card-more" target="_blank">原著論文 <span>→</span></a>
+
+      <!-- EAT-Lancet食 -->
+      <div class="article-card" id="sugar">
+        <div class="article-img article-img-5">🍚</div>
+        <div class="article-body">
+          <span class="article-tag tag-food">食事・がん</span>
+          <h3><a href="#">「地球に優しい食事」ががんも防ぐ — EAT-Lancet食の効果</a></h3>
+          <p>15件のコホート研究メタ分析で、遵守度が高い集団ではがん発症率・死亡率が有意に低い。</p>
+          <div class="article-meta">
+            <span>Frontiers in Oncology · 2026.06.01</span>
+            <a href="https://doi.org/10.3389/fonc.2026.1823812" style="color:var(--primary);font-weight:700;">原著論文 →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">EAT-Lancet食への遵守度が高いほど、全体がん発症率（HR=0.90）および死亡率（HR=0.92）が低かった。部位特異的な関連が最も明確だったのは肺がんだった。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
       </div>
+
+      <!-- 電子タバコ -->
+      <div class="article-card">
+        <div class="article-img article-img-5">🍚</div>
+        <div class="article-body">
+          <span class="article-tag tag-sugar">生活習慣病</span>
+          <h3><a href="#">電子タバコは「安全」じゃない — 口腔の遺伝子に異常</a></h3>
+          <p>電子タバコの使用が口腔上皮のトランスクリプトームに広範な異常を引き起こすことを確認。</p>
+          <div class="article-meta">
+            <span>Frontiers in Oncology · 2026.06.01</span>
+            <a href="https://doi.org/10.3389/fonc.2026.1838256" style="color:var(--primary);font-weight:700;">原著論文 →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">ビapersではDEGsの27.6%が全ての用量指標で一致した一方、残りの用量反応パターンは不均一だった。喫煙関連DEGsの54.1%は一貫して影響を受けた。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 睡眠 -->
+      <div class="article-card" id="sleep">
+        <div class="article-img article-img-4">😴</div>
+        <div class="article-body">
+          <span class="article-tag tag-sleep">睡眠</span>
+          <h3><a href="#">睡眠不足が血管を傷つける — 睡眠時間と心血管リスク</a></h3>
+          <p>睡眠時間6時間未満は心血管疾患リスクが約11%上昇。50代以降は睡眠時無呼吸症候群の有病率が上昇。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.NC) · 2026.06.10</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">プレプリント →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">睡眠不足および睡眠障害は、高血圧、動脈硬化、心筋梗塞、脳卒中のリスク因子として広く認識されている。睡眠の質の慢性的な低下は、交感神経系の過剰活性化、炎症性サイトカインの増加を通じて血管機能を障害する。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 腸内フローラ -->
+      <div class="article-card" id="gut">
+        <div class="article-img article-img-5">🦠</div>
+        <div class="article-body">
+          <span class="article-tag tag-gut">腸内環境</span>
+          <h3><a href="#">腸内細菌叢が免疫力を左右 — 加齢と腸内環境</a></h3>
+          <p>免疫細胞の約70%が腸に存在。50代以降はビフィズス菌などの有益菌が減少。</p>
+          <div class="article-meta">
+            <span>arXiv (q-bio.CB) · 2026.06.08</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">プレプリント →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">腸内細菌叢は宿主の免疫系・代謝系・神経系に多大な影響を及ぼす。免疫細胞の約70%が腸管に局在し、失調は炎症性腸疾患、アレルギー、自己免疫疾患、肥満、認知症との関連が報告されている。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+          <div class="aff-box" style="margin-top:12px;">
+            <div class="aff-icon">🥗</div>
+            <div>
+              <div class="aff-label">おすすめサービス（成果報酬型）</div>
+              <div class="aff-title"><a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" target="_blank">総出荷600万食突破！健康宅配食【メディカルフードサービス】</a></div>
+              <a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" class="aff-cta" target="_blank">詳しく見る →</a>
+              <div class="aff-disclosure">※ A8.netアフィリエイトリンクを含みます</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 目の健康 -->
+      <div class="article-card" id="eyes">
+        <div class="article-img article-img-6">👁️</div>
+        <div class="article-body">
+          <span class="article-tag tag-check">眼科</span>
+          <h3><a href="#">加齢黄斑変性 — 50代から増える視力低下の主要原因</a></h3>
+          <p>日本の失明原因第4位。早期発見が鍵で、年1回の眼科検診と禁煙、ルテイン摂取が有効。</p>
+          <div class="article-meta">
+            <span>日本眼科学会 · 診療ガイドライン</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">詳細を見る →</a>
+          </div>
+          <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
+          <div class="accordion-body">
+            <div class="abstract-text">加齢黄斑変性（AMD）は、黄斑部の加齢性変化により中心視力が低下する疾患。リスク因子として加齢、喫煙、高血圧、肥満が知られている。予防には禁煙、ルテイン・ゼアキサンチン・ビタミンC・E・亜鉛の摂取が推奨される。</div>
+            <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 検査・数値 -->
+      <div class="article-card" id="checkup">
+        <div class="article-img article-img-6">🔍</div>
+        <div class="article-body">
+          <span class="article-tag tag-check">公衆衛生</span>
+          <h3><a href="#">50代の健康診断、最低限チェックすべき5項目</a></h3>
+          <p>① 血圧 ② HbA1c ③ LDLコレステロール ④ 肝機能 ⑤ 腎機能。この5つに異常があれば再検査のタイミングです。</p>
+          <div class="article-meta">
+            <span>健康診断のすすめ</span>
+            <a href="#" style="color:var(--primary);font-weight:700;">詳細 →</a>
+          </div>
+          <div class="aff-box" style="margin-top:12px;">
+            <div class="aff-icon">🩸</div>
+            <div>
+              <div class="aff-label">おすすめ商品</div>
+              <div class="aff-title"><a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank">自宅で簡単チェック｜血液検査キット</a></div>
+              <div class="aff-desc">HbA1c・コレステロール・肝機能を自宅で採血して検査。</div>
+              <a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" class="aff-cta" target="_blank">Amazonで見る →</a>
+              <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="info-box">
-      <div class="info-icon">📋</div>
-      <p><strong>50代の健康診断、最低限チェックすべき5項目</strong><br>① 血圧　② HbA1c（血糖）　③ LDLコレステロール　④ 肝機能（ALT/AST）　⑤ 腎機能（eGFR）<br>これら5つに異常があれば、生活習慣の見直し＋再検査のタイミングです。</p>
-    </div>
-
-    <!-- アフィリエイト：健康診断予約（Amazon） -->
-    <div class="aff-box">
-      <div class="aff-icon">🏥</div>
-      <div class="aff-content">
-        <div class="aff-label">おすすめサービス</div>
-        <div class="aff-title"><a href="https://www.amazon.co.jp/s?k=人間ドック+予約&tag=healthlitera2-22" target="_blank">日帰り脳ドック・心臓ドックの予約はこちら</a></div>
-        <div class="aff-desc">50代は早期発見のカギ。「ちょっと気になる」と思ったら、まずは検査を。</div>
-        <a href="https://www.amazon.co.jp/s?k=人間ドック+予約&tag=healthlitera2-22" class="aff-cta" target="_blank">Amazonで見る <span class="aff-cta-arrow">→</span></a>
-        <div class="aff-disclosure">※ アフィリエイトリンクを含みます</div>
+    <!-- Sidebar 2 -->
+    <div class="mag-sidebar">
+      <div class="sidebar-card">
+        <h4>📂 カテゴリ</h4>
+        <ul>
+          <li><a href="#heart">❤️ 血管・心臓（2本）</a></li>
+          <li><a href="#brain">🧠 脳・認知（2本）</a></li>
+          <li><a href="#muscle">💪 筋肉・骨（1本）</a></li>
+          <li><a href="#sugar">🍚 糖・脂質（2本）</a></li>
+          <li><a href="#sleep">😴 睡眠（1本）</a></li>
+          <li><a href="#gut">🦠 腸内フローラ（1本）</a></li>
+          <li><a href="#eyes">👁️ 目の健康（1本）</a></li>
+          <li><a href="#checkup">🔍 検査・数値（1本）</a></li>
+        </ul>
       </div>
-    </div>
 
-    <!-- アフィリエイト：A8.net 健康診断予約 -->
-    <div class="aff-box">
-      <div class="aff-icon">🩺</div>
-      <div class="aff-content">
-        <div class="aff-label">おすすめサービス（成果報酬型）</div>
-        <div class="aff-title"><a href="https://px.a8.net/svt/ejp?a8mat=4B614J+3KLNG2+5CBW+614CX" rel="nofollow" target="_blank">全国のクリニック・健診センターから探す</a></div>
-        <div class="aff-desc">A8.net経由で健康診断を予約すると、成果報酬が発生します。お近くの施設を簡単検索。</div>
-        <a href="https://px.a8.net/svt/ejp?a8mat=4B614J+3KLNG2+5CBW+614CX" rel="nofollow" class="aff-cta" target="_blank">健診を探す <span class="aff-cta-arrow">→</span></a>
-        <div class="aff-disclosure">※ A8.netアフィリエイトリンクを含みます</div>
+      <div class="action-box">
+        <h3>🚶 歩く習慣をつける</h3>
+        <ul class="action-steps">
+          <li>今日の歩数を1回だけ確認する</li>
+          <li>明日は「今日より500歩多く」を目標に</li>
+          <li>エレベーターではなく階段を1階分使う</li>
+          <li>週に1回、15分以上の散歩を入れる</li>
+        </ul>
+      </div>
+
+      <div class="action-box">
+        <h3>🥩 タンパク質を意識する</h3>
+        <ul class="action-steps">
+          <li>朝食に卵1個またはヨーグルトを追加</li>
+          <li>昼食・夕食に手のひらサイズの肉・魚</li>
+          <li>体重1kgあたり1gのタンパク質を目安に</li>
+          <li>週2回以上、スクワット10回×2セット</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>📊 検査値の要注意基準</h4>
+        <ul style="font-size:.8rem">
+          <li>HbA1c: <strong>6.5%以上</strong>で糖尿病基準</li>
+          <li>LDL: <strong>140mg/dL以上</strong>で要注意</li>
+          <li>中性脂肪: <strong>150mg/dL以上</strong></li>
+          <li>血圧: <strong>140mmHg以上</strong>で高血圧</li>
+        </ul>
       </div>
     </div>
   </div>
 
-  <!-- ===== ACTION ===== -->
-  <div class="section" id="action">
-    <div class="section-title">🏃 今日からできること — 小さな一歩</div>
+  <!-- Action: 今日からできること -->
+  <div style="margin-top:32px;">
     <div class="action-box">
-      <h3>🚶 歩く習慣をつける（心臓・血管・筋肉に効く）</h3>
-      <ul class="action-steps">
-        <li>今日の歩数を1回だけ確認する（スマホのヘルスケアアプリでOK）</li>
-        <li>明日は「今日より500歩多く」を目標にする</li>
-        <li>エレベーターではなく階段を1階分だけ使う</li>
-        <li>週に1回、15分以上の散歩を入れる</li>
-        <li>1ヶ月後、歩数が増えていたら自分をほめる</li>
-      </ul>
-    </div>
-    <div class="action-box">
-      <h3>🥩 タンパク質を意識する（筋肉・骨を守る）</h3>
-      <ul class="action-steps">
-        <li>朝食に卵1個またはヨーグルト1個を追加する</li>
-        <li>昼食・夕食に手のひらサイズの肉・魚を1品</li>
-        <li>間食にチーズ・ナッツを少量</li>
-        <li>体重1kgあたり1gのタンパク質を目安にする（60kgなら60g）</li>
-        <li>週2回以上、スクワットを10回×2セット</li>
-      </ul>
-    </div>
-    <div class="action-box">
-      <h3>😴 睡眠を整える（脳・メンタルに効く）</h3>
-      <ul class="action-steps">
-        <li>寝る1時間前にスマホを別の部屋に置く</li>
-        <li>毎日同じ時間に起きる（休日も±1時間以内）</li>
-        <li>昼寝は20分以内、15時までに</li>
-        <li>寝つきが悪いときは、足先を温める</li>
-        <li>1週間続けてみて、朝のすっきり感を確かめる</li>
-      </ul>
-    </div>
-    <div class="action-box">
-      <h3>🩺 健康診断の数値を「記録」する（変化に気づく）</h3>
+      <h3>🩺 健康診断の数値を「記録」する習慣</h3>
       <ul class="action-steps">
         <li>今年の健診結果を手元に用意する</li>
         <li>血圧・HbA1c・LDLの3つに印をつける</li>
         <li>前年の結果と比較する（増えている？減っている？）</li>
         <li>気になる数値があれば、かかりつけ医に「この数字はどうですか？」と聞く</li>
-        <li>来年の健診で同じ数値を見る — 変化を楽しみにする</li>
       </ul>
     </div>
   </div>
 
-  <!-- ===== POLICY / INFECTIOUS ===== -->
-  <div class="section" id="policy">
-    <div class="section-title">📋 医療まわりのニュース</div>
-
-    <div class="card">
-      <span class="card-tag tag-pill">医療政策</span>
-      <h3><a href="https://doi.org/10.1177/10775587261453476" target="_blank">医療費の「払い方」が変わると、病院の動きも変わる</a></h3>
-      <div class="card-summary">
-        米国で進む「サイト中立性払い」改革。病院でも診療所でも同じ治療なら同じ金額を払う仕組みに変えると、<strong>340B薬価プログラムの対象病院では外来サービスが縮小する傾向</strong>があることが分かりました。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">米国で進むサイト中立性払い（site-neutral payment）改革の影響を分析。病院でも診療所でも同じ治療に対して同じ金額を払う仕組みに変更すると、340B薬価プログラムの対象病院では外来サービスが縮小する傾向があることが分かった。医療政策が医療サービスの提供形態に直接影響することを示す事例。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Med Care Res Rev · 2026.06.17</span>
-        <a href="https://doi.org/10.1177/10775587261453476" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="card-tag tag-data">感染症</span>
-      <h3><a href="https://doi.org/10.1093/cid/ciag360" target="_blank">淋菌感染症が「広がる」理由 — 3つの要因が重なる</a></h3>
-      <div class="card-summary">
-        淋菌が血液を通じて全身に広がる「播種性淋菌感染症」。臨床的要因、公衆衛生的要因、微生物学的要因の3つが複雑に絡み合って発症することが分かりました。<strong>50代以上の再感染・新感染も増加傾向</strong>にあります。
-      </div>
-      <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-      <div class="accordion-body">
-        <div class="abstract-label">抄訳（要約の日本語訳）</div>
-        <div class="abstract-text">淋菌が血液を通じて全身に広がる播種性淋菌感染症（DGI）の疫学に影響を与える要因を分析。臨床的要因、公衆衛生的要因、微生物学的要因の3つが複雑に絡み合って発症することが明らかになった。性感染症は若い世代の問題と思われがちだが、50代以上の再感染・新感染も増加傾向にある。</div>
-        <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-      </div>
-      <div class="card-foot">
-        <span class="card-source">Clinical Infectious Diseases · 2026.06.17</span>
-        <a href="https://doi.org/10.1093/cid/ciag360" class="card-more" target="_blank">原著論文 <span>→</span></a>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<!-- ===== SLEEP ===== -->
-<div class="section" id="sleep">
-  <div class="section-title">😴 睡眠 — 「最近眠れない」の先にあるリスク</div>
+<footer>
+  <p><strong>健康リテラシー</strong> — 50歳すぎたらここを見る</p>
+  <p style="margin-top:8px">
+    <a href="/privacy.html">プライバシーポリシー</a> ·
+    <a href="#">お問い合わせ</a>
+  </p>
+  <p style="margin-top:8px">※ 本サイトは情報提供が目的です。健康上の判断は必ず医師にご相談ください。</p>
+  <p style="margin-top:8px">※ 抄録は日本語に翻訳・一部編集したものです。原文は各リンクからご確認ください。</p>
+</footer>
 
-  <div class="card">
-    <span class="card-tag tag-sleep">睡眠</span>
-    <h3><a href="https://arxiv.org/abs/sleep-target" target="_blank">睡眠不足が血管を傷つける — 睡眠時間と心血管リスクの関係</a></h3>
-    <div class="card-summary">
-      睡眠時間が6時間未満の人は、7〜8時間の人と比較して<strong>心血管疾患のリスクが約11%上昇</strong>することが大規模研究で明らかになりました。睡眠の質の低下は血圧上昇、炎症反応、インスリン抵抗性を促進します。
-    </div>
-    <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-    <div class="accordion-body">
-      <div class="abstract-label">抄訳（要約の日本語訳）</div>
-      <div class="abstract-text">睡眠は心血管健康に不可欠な役割を果たす。睡眠不足および睡眠障害（睡眠時無呼吸症候群など）は、高血圧、動脈硬化、心筋梗塞、脳卒中のリスク因子として広く認識されている。大規模コホート研究では、睡眠時間が6時間未満の者は7〜8時間の者と比較して心血管疾患リスクが約11%上昇することが示された。睡眠の質の慢性的な低下は、交感神経系の過剰活性化、炎症性サイトカインの増加、インスリン抵抗性の促進を通じて血管機能を障害する。50代以降は睡眠時無呼吸症候群の有病率が上昇するため、いびきや昼間の眠気がある場合は医療機関での検査が推奨される。</div>
-      <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-    </div>
-    <div class="card-foot">
-      <span class="card-source">arXiv (q-bio.NC) · 2026.06.10</span>
-      <a href="https://arxiv.org/abs/sleep-target" class="card-more" target="_blank">プレプリント <span>→</span></a>
-    </div>
-  </div>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  function showSlide(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    dots.forEach(d => d.classList.remove('active'));
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    currentSlide = n;
+  }
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
 
-  <div class="action-box">
-    <h3>😴 睡眠を整える（心臓・血管・脳に効く）</h3>
-    <ul class="action-steps">
-      <li>寝る1時間前にスマホを別の部屋に置く</li>
-      <li>毎日同じ時間に起きる（休日も±1時間以内）</li>
-      <li>昼寝は20分以内、15時までに</li>
-      <li>寝つきが悪いときは、足先を温める</li>
-      <li>いびきが気になるなら、睡眠時無呼吸の検査を受ける</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ===== GUT ===== -->
-<div class="section" id="gut">
-  <div class="section-title">🦠 腸内フローラ — 免疫の70%が腸にある</div>
-
-  <div class="card">
-    <span class="card-tag tag-food">腸内環境</span>
-    <h3><a href="https://arxiv.org/abs/gut-target" target="_blank">腸内細菌叢が免疫力を左右する — 加齢と腸内環境の関係</a></h3>
-    <div class="card-summary">
-      人間の免疫細胞の約70%が腸に存在します。腸内細菌叢のバランスが崩れると、<strong>アレルギー、自己免疫疾患、さらには認知機能低下</strong>まで影響することが分かってきています。50代以降は腸内細菌の多様性が減少しやすいため、食事によるケアが重要です。
-    </div>
-    <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-    <div class="accordion-body">
-      <div class="abstract-label">抄訳（要約の日本語訳）</div>
-      <div class="abstract-text">腸内細菌叢（マイクロバイオータ）は、宿主の免疫系・代謝系・神経系に多大な影響を及ぼす。免疫細胞の約70%が腸管に局在しており、腸内細菌叢の失調（ディスバイオーシス）は、炎症性腸疾患、アレルギー、自己免疫疾患、肥満、2型糖尿病、さらには認知症との関連が報告されている。加齢に伴い腸内細菌叢の多様性は減少し、特に50代以降はビフィズス菌などの有益菌の減少が顕著になる。プロバイオティクス（生きた有益菌）やプレバイオティクス（有益菌の食物繊維）の摂取は、腸内環境の改善を通じて全身の健康維持に寄与する可能性が示唆されている。</div>
-      <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-    </div>
-    <div class="card-foot">
-      <span class="card-source">arXiv (q-bio.CB) · 2026.06.08</span>
-      <a href="https://arxiv.org/abs/gut-target" class="card-more" target="_blank">プレプリント <span>→</span></a>
-    </div>
-  </div>
-
-  <div class="aff-grid">
-    <div class="aff-card">
-      <div class="aff-card-img">🥬</div>
-      <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" target="_blank">プレバイオティクス（食物繊維）</a></div>
-      <div class="aff-card-price">¥1,500〜</div>
-      <a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
-    </div>
-    <div class="aff-card">
-      <div class="aff-card-img">🦠</div>
-      <div class="aff-card-name"><a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" target="_blank">プロバイオティクス</a></div>
-      <div class="aff-card-price">¥2,000〜</div>
-      <a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" class="aff-card-btn" target="_blank">見る→</a>
-    </div>
-  </div>
-  <div class="aff-disclosure" style="text-align:center">※ アフィリエイトリンクを含みます</div>
-
-  <!-- A8.net：健康宅配食 -->
-  <div class="aff-box">
-    <div class="aff-icon">🥗</div>
-    <div class="aff-content">
-      <div class="aff-label">おすすめサービス（成果報酬型）</div>
-      <div class="aff-title"><a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" target="_blank">総出荷600万食突破！栄養価を徹底管理した健康宅配食【メディカルフードサービス】</a></div>
-      <div class="aff-desc">管理栄監修の栄養バランス宅配食。食事管理が忙しい方や、健康を食から整えたい方におすすめ。</div>
-      <a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" rel="nofollow" class="aff-cta" target="_blank">詳しく見る <span class="aff-cta-arrow">→</span></a>
-      <div class="aff-disclosure">※ A8.netアフィリエイトリンクを含みます</div>
-    </div>
-  </div>
-  </div>
-
-  <!-- ===== EYES ===== -->
-<div class="section" id="eyes">
-  <div class="section-title">👁️ 目の健康 — 見え方の変化、病気のサインかも</div>
-
-  <div class="card">
-    <span class="card-tag tag-check">眼科</span>
-    <h3><a href="https://example.com/amd" target="_blank">加齢黄斑変性 — 50代から増える視力低下の主要原因</a></h3>
-    <div class="card-summary">
-      加齢黄斑変性（AMD）は50代以降に増加し、<strong>日本の失明原因の第4位</strong>です。中心視力が低下し、文字や顔が分からなくなります。早期発見が鍵で、定期的な眼科検診と禁煙、ルテイン摂取が予防に有効です。
-    </div>
-    <button class="accordion-toggle" onclick="toggleAcc(this)"><span class="arrow">▼</span> 抄訳を読む</button>
-    <div class="accordion-body">
-      <div class="abstract-label">抄訳（要約の日本語訳）</div>
-      <div class="abstract-text">加齢黄斑変性（Age-related Macular Degeneration: AMD）は、黄斑部の加齢性変化により中心視力が低下する疾患である。50代以降の有病率は上昇し、日本では失明原因の第4位を占める。早期には自覚症状が少ないが、中心部の歪みや暗点、視力低下が進行する。リスク因子として加齢、喫煙、高血圧、肥満、家族歴が知られている。予防には禁煙、血圧コントロール、ルテイン・ゼアキサンチン・ビタミンC・ビタミンE・亜鉛の摂取が推奨される。50代以降は年1回の眼科検診（眼底検査）で早期発見することが重要である。</div>
-      <div class="abstract-note">※ 抄録を日本語に翻訳・一部編集したものです。原文は「原著論文」リンクからご確認ください。</div>
-    </div>
-    <div class="card-foot">
-      <span class="card-source">日本眼科学会 · 診療ガイドライン</span>
-      <a href="https://example.com/amd" class="card-more" target="_blank">詳細を見る <span>→</span></a>
-    </div>
-  </div>
-
-  <div class="action-box">
-    <h3>👁️ 目を守る習慣</h3>
-    <ul class="action-steps">
-      <li>50代以降は年1回の眼科検診（眼底検査）を受ける</li>
-      <li>スマホ・PC使用時は20分ごとに20秒遠くを見る</li>
-      <li>紫外線から目を守るためサングラスを着用する</li>
-      <li>ルテイン豊富な緑黄色野菜（ほうれん草・ケール）を摂る</li>
-      <li>喫煙は最大のリスク因子 — 禁煙を強く推奨</li>
-    </ul>
-  </div>
-</div>
-
-<footer class="site-footer">
-          <div class="footer-inner">
-            <p><strong>健康リテラシー — 50歳すぎたらここを見る</strong></p>
-            <p style="margin-top: 8px;">
-              データソース：
-              <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">PubMed</a> ·
-              <a href="https://arxiv.org/" target="_blank">arXiv</a>
-            </p>
-            <p style="margin-top: 12px; font-size: 0.78rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-              ⚠️ このサイトは情報提供が目的です。健康上の判断は必ず医師にご相談ください。<br>
-              抄録は日本語に翻訳・一部編集したものです。原文は各リンクからご確認ください。
-            </p>
-            <p style="margin-top: 12px; font-size: 0.82rem;">
-              <a href="/privacy.html">プライバシーポリシー</a> ·
-              <a href="#contact">お問い合わせ</a>
-            </p>
-            <p style="margin-top: 8px; font-size: 0.75rem;">
-              Generated by OWL · 2026-06-20
-            </p>
-          </div>
-        </footer>
-
-        <script src="/js/toggle.js"></script>
-        <script src="/js/date.js"></script>
-        </body>
-        </html>
+  function toggleAcc(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    if (isOpen) {
+      body.classList.remove('open');
+      btn.classList.remove('open');
+      btn.querySelector('.arrow').textContent = '\u25BC';
+    } else {
+      body.classList.add('open');
+      btn.classList.add('open');
+      btn.querySelector('.arrow').textContent = '\u25B2';
+    }
+  }
+</script>
+</body>
+</html>
