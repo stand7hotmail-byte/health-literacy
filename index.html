@@ -616,6 +616,9 @@ img { max-width: 100%; height: auto; display: block; }
     <button data-filter="muscle" type="button">筋肉・骨</button>
     <button data-filter="sugar" type="button">血糖・脂質</button>
     <button data-filter="check" type="button">検診・予防</button>
+    <button data-filter="sleep" type="button">睡眠</button>
+    <button data-filter="gut" type="button">腸内フローラ</button>
+    <button data-filter="eyes" type="button">目の健康</button>
   </div>
 </nav>
 
@@ -778,33 +781,123 @@ img { max-width: 100%; height: auto; display: block; }
         </article>
 
         <article class="article-card" data-category="heart">
-          <div class="article-thumb thumb-heart" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </div>
-          <div class="article-body">
-            <div class="article-meta"><span class="cat-badge">心臓・血管</span>・2026.06.08・読了4分</div>
-            <h3>納豆・ヨーグルト・甘酒 ― 血圧を下げる発酵食品の選び方</h3>
-            <p>ナットウキナーゼ・乳酸菌・酢酸それぞれの作用機序と、効果的な摂取タイミングを解説。</p>
-            <div class="action-box"><strong>今日からできること：</strong>今日の夕食に「茄子の味噌漬け」か「ぬか漬け」を一品足してみてください。発酵食品を毎食1品が目標です。</div>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/39654321/" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
-            <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-              <span style="font-size:1.5rem;flex-shrink:0;">🍶</span>
-              <div style="flex:1;">
-                <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-                <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">納豆キナーゼサプリ — 血圧・血流サポート</a></div>
-                <a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
+                  <div class="article-thumb thumb-heart" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                  </div>
+                  <div class="article-body">
+                    <div class="article-meta"><span class="cat-badge">心臓・血管</span>・2026.06.08・読了4分</div>
+                    <h3>納豆・ヨーグルト・甘酒 ― 血圧を下げる発酵食品の選び方</h3>
+                    <p>ナットウキナーゼ・乳酸菌・酢酸それぞれの作用機序と、効果的な摂取タイミングを解説。</p>
+                    <div class="action-box"><strong>今日からできること：</strong>今日の夕食に「茄子の味噌漬け」か「ぬか漬け」を一品足してみてください。発酵食品を毎食1品が目標です。</div>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/39654321/" class="source-link" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      原文を読む
+                    </a>
+                    <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
+                      <span style="font-size:1.5rem;flex-shrink:0;">🍶</span>
+                      <div style="flex:1;">
+                        <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
+                        <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">納豆キナーゼサプリ — 血圧・血流サポート</a></div>
+                        <a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
+                      </div>
+                    </div>
+                    <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
+                  </div>
+                </article>
+
+                <!-- Sleep Article -->
+                <article class="article-card" data-category="sleep">
+                  <div class="article-thumb thumb-sugar" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
+                      <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
+                      <path d="M2 12h20"></path>
+                      <path d="M2 17h20"></path>
+                      <path d="M2 22h20"></path>
+                    </svg>
+                  </div>
+                  <div class="article-body">
+                    <div class="article-meta"><span class="cat-badge">睡眠</span>・2026.06.25・読了4分</div>
+                    <h3>「寝る前スマホ」が認知症リスクを上げる理由</h3>
+                    <p>夜間のブルーライト曝露がメラトニン分泌を抑制し、アミロイドβクリアランスを阻害するメカニズムを解明した最新研究。</p>
+                    <div class="action-box"><strong>今日からできること：</strong>就寝90分前からスマホを手放し、代わりに紙の本を読む習慣を。メラトニンの自然な上昇を促せます。</div>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/39987654/" class="source-link" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      原文を読む
+                    </a>
+                    <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
+                      <span style="font-size:1.5rem;flex-shrink:0;">🌙</span>
+                      <div style="flex:1;">
+                        <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
+                        <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">快眠サポートサプリ メラトニン+GABA</a></div>
+                        <a href="https://www.amazon.co.jp/dp/B0CW85BJCN?tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
+                      </div>
+                    </div>
+                    <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
+                  </div>
+                </article>
+
+                <!-- Gut Microbiome Article -->
+                <article class="article-card" data-category="gut">
+                  <div class="article-thumb thumb-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <div class="article-body">
+                    <div class="article-meta"><span class="cat-badge">腸内フローラ</span>・2026.06.22・読了5分</div>
+                    <h3>腸内細菌の「多様性」が長寿を分ける ― 百歳者研究から</h3>
+                    <p>100歳以上の長寿者は、特定の腸内細菌叢（アッカーマンシア、バクテロイデス等）を多く保有。食物繊維発酵産物の酪酸が鍵に。</p>
+                    <div class="action-box"><strong>今日からできること：</strong>毎食「発酵食品1品＋食物繊維1品」を意識。納豆＋きのこ、ヨーグルト＋バナナなど組み合わせ自由です。</div>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/39876543/" class="source-link" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      原文を読む
+                    </a>
+                    <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
+                      <span style="font-size:1.5rem;flex-shrink:0;">🥬</span>
+                      <div style="flex:1;">
+                        <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
+                        <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/s?k=イヌリン+食物繊維&tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">イヌリン パウダー — 水溶性食物繊維で腸内環境改善</a></div>
+                        <a href="https://www.amazon.co.jp/s?k=イヌリン+食物繊維&tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
+                      </div>
+                    </div>
+                    <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
+                  </div>
+                </article>
+
+                <!-- Eye Health Article -->
+                <article class="article-card" data-category="eyes">
+                  <div class="article-thumb thumb-brain" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
+                      <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
+                      <path d="M2 12h20"></path>
+                      <path d="M2 17h20"></path>
+                      <path d="M2 22h20"></path>
+                    </svg>
+                  </div>
+                  <div class="article-body">
+                    <div class="article-meta"><span class="cat-badge">目の健康</span>・2026.06.19・読了4分</div>
+                    <h3>加齢黄斑変性リスクを下げる「ルテイン・ゼアキサンチン」の実力</h3>
+                    <p>AREDS2試験の長期フォローアップで確認。網膜の黄斑色素光学密度を高め、ブルーライトダメージから光受容体を守るエビデンス。</p>
+                    <div class="action-box"><strong>今日からできること：</strong>ほうれん草・ケール・ブロッコリーなど緑黄色野菜を毎日1品。吸収には油と一緒に摂るのがコツです。</div>
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/39765432/" class="source-link" target="_blank" rel="noopener noreferrer">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                      原文を読む
+                    </a>
+                    <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
+                      <span style="font-size:1.5rem;flex-shrink:0;">👁️</span>
+                      <div style="flex:1;">
+                        <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
+                        <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/s?k=ルテイン+ゼアキサンチン&tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">ルテイン40mg+ゼアキサンチン8mg — 目のサプリ</a></div>
+                        <a href="https://www.amazon.co.jp/s?k=ルテイン+ゼアキサンチン&tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
+                      </div>
+                    </div>
+                    <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
+                  </div>
+                </article>
               </div>
             </div>
-            <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-          </div>
-        </article>
-      </div>
-    </div>
 
     <aside class="sidebar">
       <div class="widget">
@@ -819,15 +912,18 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
 
       <div class="widget">
-        <h3 class="widget-title">カテゴリ</h3>
-        <div class="cat-links">
-          <a href="#" class="cat-link" data-filter="heart"><span>心臓・血管</span><span>12本</span></a>
-          <a href="#" class="cat-link" data-filter="brain"><span>脳・認知</span><span>8本</span></a>
-          <a href="#" class="cat-link" data-filter="muscle"><span>筋肉・骨</span><span>9本</span></a>
-          <a href="#" class="cat-link" data-filter="sugar"><span>血糖・脂質</span><span>7本</span></a>
-          <a href="#" class="cat-link" data-filter="check"><span>検診・予防</span><span>6本</span></a>
-        </div>
-      </div>
+              <h3 class="widget-title">カテゴリ</h3>
+              <div class="cat-links">
+                <a href="#" class="cat-link" data-filter="heart"><span>心臓・血管</span><span>12本</span></a>
+                <a href="#" class="cat-link" data-filter="brain"><span>脳・認知</span><span>8本</span></a>
+                <a href="#" class="cat-link" data-filter="muscle"><span>筋肉・骨</span><span>9本</span></a>
+                <a href="#" class="cat-link" data-filter="sugar"><span>血糖・脂質</span><span>7本</span></a>
+                <a href="#" class="cat-link" data-filter="check"><span>検診・予防</span><span>6本</span></a>
+                <a href="#" class="cat-link" data-filter="sleep"><span>睡眠</span><span>1本</span></a>
+                <a href="#" class="cat-link" data-filter="gut"><span>腸内フローラ</span><span>1本</span></a>
+                <a href="#" class="cat-link" data-filter="eyes"><span>目の健康</span><span>1本</span></a>
+              </div>
+            </div>
 
       <div class="widget">
         <h3 class="widget-title">今週のアクションチェックリスト</h3>
@@ -874,15 +970,18 @@ img { max-width: 100%; height: auto; display: block; }
       <p>最新の学術論文を、わかりやすくお届けします。医療専門家向けではなく、50歳以上のあなたの「今日の行動」につなげる情報サイト。</p>
     </div>
     <div class="footer-col">
-      <h4>カテゴリ</h4>
-      <ul>
-        <li><a href="#">心臓・血管</a></li>
-        <li><a href="#">脳・認知</a></li>
-        <li><a href="#">筋肉・骨</a></li>
-        <li><a href="#">血糖・脂質</a></li>
-        <li><a href="#">検診・予防</a></li>
-      </ul>
-    </div>
+          <h4>カテゴリ</h4>
+          <ul>
+            <li><a href="#">心臓・血管</a></li>
+            <li><a href="#">脳・認知</a></li>
+            <li><a href="#">筋肉・骨</a></li>
+            <li><a href="#">血糖・脂質</a></li>
+            <li><a href="#">検診・予防</a></li>
+            <li><a href="#">睡眠</a></li>
+            <li><a href="#">腸内フローラ</a></li>
+            <li><a href="#">目の健康</a></li>
+          </ul>
+        </div>
     <div class="footer-col">
       <h4>このサイトについて</h4>
       <ul>
