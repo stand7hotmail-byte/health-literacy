@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -11,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
+  /* Warm-trust palette: deep forest green + cream */
   --primary: oklch(38% 0.09 155);
   --primary-dark: oklch(30% 0.08 155);
   --primary-light: oklch(94% 0.04 150);
@@ -33,23 +33,10 @@
   --font-body: 'Noto Sans JP', -apple-system, 'Segoe UI', sans-serif;
   --max-w: 1180px;
   --text-base: 17px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --dur-fast: 120ms;
-  --dur-base: 200ms;
-  --dur-slow: 350ms;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { font-size: var(--text-base); scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -58,23 +45,12 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
-a { color: var(--primary); text-decoration: none; transition: color var(--dur-fast) var(--ease); }
-a:hover { color: var(--primary-dark); text-decoration: underline; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
 img { max-width: 100%; height: auto; display: block; }
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
-/* Skip link */
-.skip-link {
-  position: absolute; top: -100%; left: 24px;
-  background: var(--primary); color: #fff;
-  padding: 12px 20px; border-radius: var(--radius);
-  font-weight: 700; z-index: 1000;
-  text-decoration: none;
-}
-.skip-link:focus { top: 24px; }
-
-/* Masthead */
+/* === MASTHEAD === */
 .masthead {
   background: linear-gradient(170deg, var(--primary-dark) 0%, var(--primary) 60%, oklch(42% 0.10 150) 100%);
   color: #fff;
@@ -127,20 +103,17 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
 }
 
-/* Daily Corner */
+/* === DAILY CORNER === */
 .daily-corner {
-  background: var(--paper);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 0;
+  background: var(--primary-light);
+  border-bottom: 1px solid oklch(86% 0.04 150);
+  padding: 14px 0;
 }
 .daily-corner-inner {
   display: flex;
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 24px;
 }
 .dc-label {
   background: var(--primary);
@@ -151,7 +124,6 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 4px;
   white-space: nowrap;
   letter-spacing: 0.5px;
-  flex-shrink: 0;
 }
 .dc-text {
   flex: 1;
@@ -161,7 +133,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .dc-text strong { color: var(--primary-dark); }
 
-/* Tab Navigation */
+/* === TAB NAV === */
 .tab-nav {
   position: sticky;
   top: 0;
@@ -202,7 +174,7 @@ img { max-width: 100%; height: auto; display: block; }
 .tab-nav button.active { color: var(--primary-dark); background: var(--primary-light); border-bottom-color: var(--primary); font-weight: 700; }
 .tab-nav button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 4px 4px 0 0; }
 
-/* Carousel */
+/* === CAROUSEL HERO === */
 .carousel { background: var(--paper); padding: 40px 0 44px; }
 .carousel-container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 .carousel-viewport {
@@ -210,7 +182,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
 }
-.carousel-track { display: flex; transition: transform 0.6s var(--ease); }
+.carousel-track { display: flex; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
 .carousel-slide {
   min-width: 100%;
   padding: 52px 56px;
@@ -233,6 +205,8 @@ img { max-width: 100%; height: auto; display: block; }
 .slide-heart { background: linear-gradient(140deg, oklch(35% 0.10 28), oklch(42% 0.08 10)); }
 .slide-brain { background: linear-gradient(140deg, oklch(33% 0.07 260), oklch(40% 0.09 285)); }
 .slide-muscle { background: linear-gradient(140deg, var(--primary-dark), oklch(40% 0.09 140)); }
+.slide-sugar { background: linear-gradient(140deg, oklch(38% 0.08 75), oklch(45% 0.10 95)); }
+.slide-check { background: linear-gradient(140deg, oklch(35% 0.06 200), oklch(42% 0.07 180)); }
 .slide-tag {
   display: inline-block;
   background: oklch(100% 0 0 / 0.2);
@@ -267,14 +241,13 @@ img { max-width: 100%; height: auto; display: block; }
   border: none;
   background: var(--border);
   cursor: pointer;
-  transition: all var(--dur-base) var(--ease);
+  transition: all 0.25s;
   padding: 0;
 }
 .carousel-dot.active { background: var(--primary); transform: scale(1.2); }
 .carousel-dot:hover { background: var(--primary-light); }
-.carousel-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* Magazine Grid */
+/* === MAGAZINE GRID === */
 .magazine { padding: 48px 0; }
 .mag-grid {
   display: grid;
@@ -302,7 +275,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 20px;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
-  transition: all var(--dur-slow) var(--ease);
+  transition: all 0.25s;
 }
 .article-card:hover {
   box-shadow: var(--shadow-md);
@@ -314,13 +287,14 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.8rem;
   flex-shrink: 0;
 }
-.thumb-heart { background: var(--primary-light); color: var(--primary); }
-.thumb-brain { background: oklch(92% 0.05 260); color: oklch(33% 0.07 260); }
-.thumb-muscle { background: oklch(92% 0.05 140); color: oklch(30% 0.08 155); }
-.thumb-sugar { background: oklch(92% 0.05 75); color: oklch(50% 0.12 75); }
-.thumb-check { background: oklch(92% 0.05 200); color: oklch(30% 0.08 200); }
+.thumb-heart { background: oklch(92% 0.06 28); }
+.thumb-brain { background: oklch(92% 0.05 260); }
+.thumb-muscle { background: oklch(92% 0.05 140); }
+.thumb-sugar { background: oklch(92% 0.05 75); }
+.thumb-check { background: oklch(92% 0.05 200); }
 .article-body { flex: 1; min-width: 0; }
 .article-meta {
   font-size: 0.8rem;
@@ -362,19 +336,8 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.6;
 }
 .action-box strong { color: var(--accent); }
-.source-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 0.8rem;
-  color: var(--accent);
-  font-weight: 500;
-}
-.source-link:hover { color: var(--primary); }
-.source-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-/* Sidebar */
+/* === SIDEBAR === */
 .sidebar { display: flex; flex-direction: column; gap: 24px; }
 .widget {
   background: var(--paper);
@@ -433,7 +396,7 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: 6px;
   color: var(--ink);
   font-size: 0.9rem;
-  transition: all var(--dur-base) var(--ease);
+  transition: all 0.2s;
   text-decoration: none;
 }
 .cat-link:hover { background: var(--primary-light); color: var(--primary-dark); }
@@ -451,7 +414,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   cursor: pointer;
   border-radius: 6px;
-  transition: all var(--dur-base) var(--ease);
+  transition: all 0.2s;
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -466,7 +429,7 @@ img { max-width: 100%; height: auto; display: block; }
 .checklist li.checked { text-decoration: line-through; color: var(--muted); }
 .checklist li.checked::before { content: '☑'; color: var(--success); }
 
-/* CTA Section */
+/* === CTA SECTION === */
 .cta-section {
   background: linear-gradient(170deg, var(--primary-dark), var(--primary));
   color: #fff;
@@ -502,7 +465,7 @@ img { max-width: 100%; height: auto; display: block; }
   background: #fff;
   color: var(--ink);
   outline: none;
-  transition: border-color var(--dur-fast) var(--ease);
+  transition: border-color 0.2s;
 }
 .newsletter-form input:focus { border-color: var(--accent); }
 .newsletter-form button {
@@ -515,12 +478,12 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   font-family: var(--font-body);
   cursor: pointer;
-  transition: all var(--dur-base) var(--ease);
+  transition: all 0.25s;
   white-space: nowrap;
 }
 .newsletter-form button:hover { background: oklch(52% 0.13 55); transform: translateY(-1px); }
 
-/* Footer */
+/* === FOOTER === */
 .footer {
   background: oklch(25% 0.02 55);
   color: oklch(85% 0.01 60);
@@ -543,7 +506,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-col p { font-size: 0.88rem; line-height: 1.7; margin: 0; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
 .footer-col li { margin-bottom: 8px; }
-.footer-col a { color: oklch(85% 0.02 60); font-size: 0.88rem; transition: color var(--dur-fast) var(--ease); }
+.footer-col a { color: oklch(85% 0.02 60); font-size: 0.88rem; transition: color 0.2s; }
 .footer-col a:hover { color: #fff; }
 .footer-bottom {
   max-width: var(--max-w);
@@ -558,7 +521,7 @@ img { max-width: 100%; height: auto; display: block; }
   opacity: 0.7;
 }
 
-/* Responsive */
+/* === RESPONSIVE === */
 @media (max-width: 920px) {
   .mag-grid { grid-template-columns: 1fr; gap: 32px; }
   .sidebar { order: 2; }
@@ -568,7 +531,7 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 600px) {
   :root { --text-base: 16px; }
   .masthead { padding: 28px 20px 24px; }
-  .tab-nav button { padding: 12px 16px; font-size: 0.88rem; }
+  .tab-nav a { padding: 12px 16px; font-size: 0.88rem; }
   .article-card { flex-direction: column; gap: 12px; padding: 16px; }
   .article-thumb { width: 48px; height: 48px; font-size: 1.4rem; }
   .newsletter-form { flex-direction: column; }
@@ -582,7 +545,7 @@ img { max-width: 100%; height: auto; display: block; }
   .carousel-slide { padding: 28px 20px; }
 }
 
-/* Reduced Motion */
+/* === REDUCED MOTION === */
 @media (prefers-reduced-motion: reduce) {
   .carousel-track { transition: none; }
   .article-card { transition: none; }
@@ -590,6 +553,7 @@ img { max-width: 100%; height: auto; display: block; }
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
 <header class="masthead" role="banner">
@@ -654,153 +618,62 @@ img { max-width: 100%; height: auto; display: block; }
       <h2 class="section-title">新着記事</h2>
       <div class="article-list">
         <article class="article-card" data-category="heart">
-          <div class="article-thumb thumb-heart" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">心臓・血管</span>・2026.06.23・読了4分</div>
             <h3>血圧「朝型」と「夜型」で薬の効き方が変わる</h3>
             <p>朝に血圧が高くなる「モーニングサージ」と、夜間に下がらない「ノンダイパータイプ」。それぞれに最適な服薬タイミングと生活習慣の工夫とは。</p>
             <div class="action-box"><strong>今日からできること：</strong>就寝前ではなく「夕食前に血圧を測る」習慣を2週間つけてください。パターンが見えて医師との相談がスムーズになります。</div>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/39876543/" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
-            <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-              <span style="font-size:1.5rem;flex-shrink:0;">⌚</span>
-              <div style="flex:1;">
-                <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-                <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">Xiaomi Smart Band 10 — 歩数・心拍・睡眠を見える化</a></div>
-                <a href="https://www.amazon.co.jp/dp/B0DYF82545?tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
-              </div>
-            </div>
-            <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
           </div>
         </article>
 
         <article class="article-card" data-category="brain">
-          <div class="article-thumb thumb-brain" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
-              <path d="M2 12h20"></path>
-              <path d="M2 17h20"></path>
-              <path d="M2 22h20"></path>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-brain" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path><path d="M2 12h20"></path><path d="M2 17h20"></path><path d="M2 22h20"></path></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">脳・認知</span>・2026.06.20・読了5分</div>
             <h3>週3回の「ながら運動」で認知機能が改善</h3>
             <p>ウォークしながら計算、掃除しながら音声教材を聴く――「運動＋知的活動」の組み合わせがBDNFを増やす最新エビデンス。</p>
             <div class="action-box"><strong>今日からできること：</strong>明日の散歩で「100から7を引き算」しながら歩いてみましょう。最初はゆっくりで大丈夫です。</div>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/39765432/" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
           </div>
         </article>
 
         <article class="article-card" data-category="muscle">
-          <div class="article-thumb thumb-muscle" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
-              <path d="M8 21h8"></path>
-              <path d="M12 17v4"></path>
-              <path d="M8 12h8"></path>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-muscle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">筋肉・骨</span>・2026.06.18・読了4分</div>
             <h3>「たんぱく質は朝と夜に分ける」が新しい常識</h3>
             <p>高齢者の筋肉合成には1食あたり約25〜30gのたんぱく質が必要。まとめ食いせず、朝昼夜に分けることで筋肉の維持効率が変わります。</p>
             <div class="action-box"><strong>今日からできること：</strong>明日の朝、卵1個＋牛乳1杯を足してみましょう。合計約18gのたんぱく質です。</div>
-            <a href="https://www.thelancet.com/journals/lanhl/article/PIIS2666-7568(24)00045-6/fulltext" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
-            <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-              <span style="font-size:1.5rem;flex-shrink:0;">💪</span>
-              <div style="flex:1;">
-                <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-                <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">COCOLAB HMB EX — 筋肉維持サポートサプリ</a></div>
-                <a href="https://www.amazon.co.jp/dp/B084RFTKLV?tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
-              </div>
-            </div>
-            <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
           </div>
         </article>
 
         <article class="article-card" data-category="sugar">
-          <div class="article-thumb thumb-sugar" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 8v8M8 12h8"></path>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-sugar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8M8 12h8"></path></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">血糖・脂質</span>・2026.06.15・読了3分</div>
             <h3>食後15分のウォーキングが糖を変える</h3>
             <p>食後の血糖ピークを抑制するには、食前ではなく「食後10〜15分」の軽い歩行が最も効果的という大規模研究の知見を紹介。</p>
             <div class="action-box"><strong>今日からできること：</strong>食事が終わったら、すぐ5分間の近所散歩を習慣に。「食後すぐ動く」だけで血糖スパイクが変わります。</div>
-            <a href="https://www.jacc.org/doi/10.1016/j.jacc.2024.01.023" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
           </div>
         </article>
 
         <article class="article-card" data-category="check">
-          <div class="article-thumb thumb-check" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">検診・予防</span>・2026.06.12・読了5分</div>
             <h3>50歳で「骨密度検査」は本当に必要？</h3>
             <p>年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。</p>
             <div class="action-box"><strong>今日からできること：</strong>次回の健康診断で「腰椎DEXA法」の骨密度検査が含まれているか確認してみてください。</div>
-            <a href="https://jamanetwork.com/journals/jamaneurology/fullarticle/2815432" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
-            <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-              <span style="font-size:1.5rem;flex-shrink:0;">🏠</span>
-              <div style="flex:1;">
-                <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-                <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">まるごと健診チェッカー — 自宅でHbA1c・コレステロール・肝機能</a></div>
-                <a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
-              </div>
-            </div>
-            <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
           </div>
         </article>
 
         <article class="article-card" data-category="heart">
-          <div class="article-thumb thumb-heart" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-            </svg>
-          </div>
+                  <div class="article-thumb thumb-heart" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
           <div class="article-body">
             <div class="article-meta"><span class="cat-badge">心臓・血管</span>・2026.06.08・読了4分</div>
             <h3>納豆・ヨーグルト・甘酒 ― 血圧を下げる発酵食品の選び方</h3>
             <p>ナットウキナーゼ・乳酸菌・酢酸それぞれの作用機序と、効果的な摂取タイミングを解説。</p>
             <div class="action-box"><strong>今日からできること：</strong>今日の夕食に「茄子の味噌漬け」か「ぬか漬け」を一品足してみてください。発酵食品を毎食1品が目標です。</div>
-            <a href="https://pubmed.ncbi.nlm.nih.gov/39654321/" class="source-link" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              原文を読む
-            </a>
-            <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-              <span style="font-size:1.5rem;flex-shrink:0;">🍶</span>
-              <div style="flex:1;">
-                <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-                <div style="font-weight:600;margin-bottom:6px;"><a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">納豆キナーゼサプリ — 血圧・血流サポート</a></div>
-                <a href="https://www.amazon.co.jp/s?k=納豆キナーゼ&tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
-              </div>
-            </div>
-            <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
           </div>
         </article>
       </div>
@@ -839,18 +712,6 @@ img { max-width: 100%; height: auto; display: block; }
           <li>階段を使った</li>
         </ul>
         <p style="font-size:.82rem;color:var(--muted);margin:14px 0 0;">☑ をタップで完了チェック。ブラウザに保存されます。</p>
-      </div>
-
-      <div class="widget">
-        <h3 class="widget-title">おすすめサービス</h3>
-        <div class="aff-box" style="padding:16px;display:block;">
-          <a href="https://px.a8.net/svt/ejp?a8mat=4B63GL+FN831U+4GYQ+5YJRM" target="_blank" rel="nofollow" style="display:block;text-decoration:none;color:inherit;">
-            <div style="font-weight:700;margin-bottom:4px;">🥗 栄養価を徹底管理した健康宅配食</div>
-            <div style="font-size:.85rem;color:var(--ink-soft);">総出荷600万食突破！メディカルフードサービス</div>
-          </a>
-          <img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4B63GL+FN831U+4GYQ+5YJRM" alt="" style="display:none;">
-          <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-        </div>
       </div>
     </aside>
   </div>
@@ -917,6 +778,12 @@ img { max-width: 100%; height: auto; display: block; }
   }
   function nextSlide() { goToSlide(currentSlide + 1); }
   function startAuto() { autoTimer = setInterval(nextSlide, 8000); }
+  // Pause on hover
+  var viewport = document.querySelector('.carousel-viewport');
+  if (viewport) {
+    viewport.addEventListener('mouseenter', stopAuto);
+    viewport.addEventListener('mouseleave', startAuto);
+  }
   function stopAuto() { clearInterval(autoTimer); }
 
   dots.forEach(function(dot) {
@@ -925,26 +792,22 @@ img { max-width: 100%; height: auto; display: block; }
       stopAuto(); startAuto();
     });
   });
+  startAuto();
 
+  // Pause on hover
   var viewport = document.getElementById('carouselViewport');
   if (viewport) {
     viewport.addEventListener('mouseenter', stopAuto);
     viewport.addEventListener('mouseleave', startAuto);
   }
 
-  startAuto();
-
   /* Category filter */
   function filterCategory(filter) {
     document.querySelectorAll('.article-card[data-category]').forEach(function(card) {
       card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
     });
-    document.querySelectorAll('.tab-nav button[data-filter]').forEach(function(btn) {
-      btn.classList.toggle('active', btn.dataset.filter === filter);
-    });
-    document.querySelectorAll('.cat-link[data-filter]').forEach(function(link) {
-      link.style.background = (link.dataset.filter === filter) ? 'var(--primary-light)' : '';
-      link.style.color = (link.dataset.filter === filter) ? 'var(--primary-dark)' : '';
+    document.querySelectorAll('.tab-nav a[data-filter]').forEach(function(a) {
+      a.classList.toggle('active', a.dataset.filter === filter);
     });
   }
   document.querySelectorAll('.tab-nav button[data-filter]').forEach(function(tab) {
@@ -981,6 +844,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* Newsletter form */
   var form = document.getElementById('newsletterForm');
   var nlKey = 'healthlit-newsletter';
+  // Check if already subscribed
   var alreadySubscribed = false;
   try { alreadySubscribed = localStorage.getItem(nlKey) === 'subscribed'; } catch(e) {}
   if (alreadySubscribed) {
@@ -996,6 +860,7 @@ img { max-width: 100%; height: auto; display: block; }
     btn.textContent = '登録完了！';
     btn.style.background = 'oklch(48% 0.10 145)';
     input.disabled = true;
+    // Persistent success - show confirmation message
     setTimeout(function() {
       form.innerHTML = '<p style="color:var(--success);font-weight:700;">登録完了しました。毎週月曜にお届けします。</p>';
     }, 1500);
