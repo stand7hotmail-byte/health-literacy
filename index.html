@@ -690,7 +690,7 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="mag-main">
       <h2 class="section-title">新着記事</h2>
       <div class="article-list">
-        <article class="article-card" data-category="heart">
+        <article class="article-card" data-category="heart" itemscope itemtype="https://schema.org/Article">
           <div class="article-thumb thumb-heart" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -714,10 +714,27 @@ img { max-width: 100%; height: auto; display: block; }
               </div>
             </div>
             <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-          </div>
-        </article>
+                        <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                          <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
 
-        <article class="article-card" data-category="brain">
+        <article class="article-card" data-category="brain" itemscope itemtype="https://schema.org/Article">
           <div class="article-thumb thumb-brain" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
               <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
@@ -738,7 +755,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
         </article>
 
-        <article class="article-card" data-category="muscle">
+        <article class="article-card" data-category="muscle" itemscope itemtype="https://schema.org/Article">
           <div class="article-thumb thumb-muscle" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
               <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
@@ -765,10 +782,27 @@ img { max-width: 100%; height: auto; display: block; }
               </div>
             </div>
             <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-          </div>
-        </article>
+                        <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                          <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
 
-        <article class="article-card" data-category="sugar">
+        <article class="article-card" data-category="sugar" itemscope itemtype="https://schema.org/Article">
           <div class="article-thumb thumb-sugar" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
               <circle cx="12" cy="12" r="10"></circle>
@@ -787,7 +821,7 @@ img { max-width: 100%; height: auto; display: block; }
           </div>
         </article>
 
-        <article class="article-card" data-category="check">
+        <article class="article-card" data-category="check" itemscope itemtype="https://schema.org/Article">
           <div class="article-thumb thumb-check" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
               <polyline points="20 6 9 17 4 12"></polyline>
@@ -811,10 +845,27 @@ img { max-width: 100%; height: auto; display: block; }
               </div>
             </div>
             <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-          </div>
-        </article>
+                        <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                          <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                            </a>
+                            <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                              <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                              <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
 
-        <article class="article-card" data-category="heart">
+        <article class="article-card" data-category="heart" itemscope itemtype="https://schema.org/Article">
                   <div class="article-thumb thumb-heart" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
                       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
@@ -838,11 +889,28 @@ img { max-width: 100%; height: auto; display: block; }
                       </div>
                     </div>
                     <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-                  </div>
-                </article>
+                                <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                                  <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                                  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                    <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
 
                 <!-- Sleep Article -->
-                <article class="article-card" data-category="sleep">
+                <article class="article-card" data-category="sleep" itemscope itemtype="https://schema.org/Article">
                   <div class="article-thumb thumb-sugar" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
                       <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
@@ -869,11 +937,28 @@ img { max-width: 100%; height: auto; display: block; }
                       </div>
                     </div>
                     <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-                  </div>
-                </article>
+                                <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                                  <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                                  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                    <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
 
                 <!-- Gut Microbiome Article -->
-                <article class="article-card" data-category="gut">
+                <article class="article-card" data-category="gut" itemscope itemtype="https://schema.org/Article">
                   <div class="article-thumb thumb-check" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
                       <polyline points="20 6 9 17 4 12"></polyline>
@@ -897,11 +982,28 @@ img { max-width: 100%; height: auto; display: block; }
                       </div>
                     </div>
                     <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-                  </div>
-                </article>
+                                <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                                  <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                                  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                    <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
 
                 <!-- Eye Health Article -->
-                <article class="article-card" data-category="eyes">
+                <article class="article-card" data-category="eyes" itemscope itemtype="https://schema.org/Article">
                   <div class="article-thumb thumb-brain" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
                       <path d="M12 2a2 2 0 0 0-2 2c0 .74.4 1.39 1 1.73V7h1v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V7h1V5.73c.6-.34 1-.99 1-1.73a2 2 0 0 0-2-2z"></path>
@@ -928,8 +1030,25 @@ img { max-width: 100%; height: auto; display: block; }
                       </div>
                     </div>
                     <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-                  </div>
-                </article>
+                                <div class="related-articles" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+                                  <h4 style="font-size:.85rem;font-weight:700;margin:0 0 12px;color:var(--ink);">この記事を読んだ人はこちらも</h4>
+                                  <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                                    <a href="#" class="related-card" data-filter="brain" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">脳・認知の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="sugar" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">血糖・脂質の記事</span>
+                                    </a>
+                                    <a href="#" class="related-card" data-filter="muscle" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+                                      <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
+                                      <span style="font-size:.8rem;font-weight:600;line-height:1.5;">筋肉・骨の記事</span>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </article>
               </div>
             </div>
 
