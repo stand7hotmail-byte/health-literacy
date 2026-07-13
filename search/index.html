@@ -3,27 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>50歳で「骨密度検査」は本当に必要？ — 健康リテラシー</title>
-<meta name="description" content="年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。">
-<link rel="canonical" href="https://health-literacy.vercel.app/article/bone-density-screening-necessity/">
-<meta property="og:title" content="50歳で「骨密度検査」は本当に必要？ — 健康リテラシー">
-<meta property="og:description" content="年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://health-literacy.vercel.app/article/bone-density-screening-necessity/">
-<meta property="article:published_time" content="2026-06-12T00:00:00+09:00">
-<meta property="article:section" content="検診・予防">
+<title>記事検索 — 健康リテラシー</title>
+<meta name="description" content="健康リテラシーの記事をキーワードで検索。血圧、認知症、筋肉、血糖、骨密度など、気になるテーマで最新の医学論文記事を探せます。">
+<link rel="canonical" href="https://health-literacy.vercel.app/search/">
+<meta property="og:title" content="記事検索 — 健康リテラシー">
+<meta property="og:description" content="健康リテラシーの記事をキーワードで検索。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://health-literacy.vercel.app/search/">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "50歳で「骨密度検査」は本当に必要？",
-  "description": "年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。",
-  "datePublished": "2026-06-12T00:00:00+09:00",
-  "dateModified": "2026-06-12T00:00:00+09:00",
-  "author": {"@type": "Organization", "name": "健康リテラシー編集部"},
-  "publisher": {"@type": "Organization", "name": "健康リテラシー"},
-  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://health-literacy.vercel.app/article/bone-density-screening-necessity/"}
+  "@type": "WebSite",
+  "name": "健康リテラシー",
+  "url": "https://health-literacy.vercel.app/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://health-literacy.vercel.app/search/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
 }
 </script>
 <style>
@@ -605,13 +606,44 @@ img { max-width: 100%; height: auto; display: block; }
   .article-card { transition: none; }
 }
 </style>
+<style>
+.search-container { max-width: 720px; margin: 0 auto; padding: 40px 20px; }
+.search-header { text-align: center; margin-bottom: 32px; }
+.search-title { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin: 0 0 12px; color: var(--ink); }
+.search-subtitle { color: var(--ink-soft); font-size: 1.05rem; margin: 0; }
+.search-form { display: flex; gap: 12px; margin-bottom: 32px; }
+.search-input { flex: 1; padding: 16px 20px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 1.05rem; font-family: var(--font-body); background: #fff; color: var(--ink); outline: none; transition: border-color var(--dur-fast) var(--ease); }
+.search-input:focus { border-color: var(--accent); }
+.search-btn { padding: 16px 28px; background: var(--primary); color: #fff; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; font-family: var(--font-body); cursor: pointer; transition: all var(--dur-base) var(--ease); white-space: nowrap; }
+.search-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.search-stats { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+.search-results { display: flex; flex-direction: column; gap: 16px; }
+.search-result { background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: all var(--dur-base) var(--ease); }
+.search-result:hover { box-shadow: var(--shadow-md); border-color: var(--primary-light); }
+.search-result-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; }
+.search-result-cat { font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+.search-result-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; margin: 0 0 6px; line-height: 1.4; }
+.search-result-title a { color: var(--ink); text-decoration: none; transition: color var(--dur-fast) var(--ease); }
+.search-result-title a:hover { color: var(--primary); }
+.search-result-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; }
+.search-result-desc { color: var(--ink-soft); line-height: 1.7; font-size: 0.95rem; }
+.search-highlight { background: var(--accent-soft); color: var(--accent); padding: 0 2px; border-radius: 2px; }
+.no-results { text-align: center; padding: 60px 20px; color: var(--muted); }
+.no-results-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.5; }
+.search-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.search-tag { font-size: 0.7rem; background: var(--primary-light); color: var(--primary); padding: 3px 10px; border-radius: 20px; }
+@media (max-width: 600px) {
+  .search-form { flex-direction: column; }
+  .search-btn { width: 100%; }
+}
+</style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
 
 <header class="masthead" role="banner">
   <div class="container">
-    <p class="masthead-date">2026-06-12 🔍 検診・予防</p>
+    <p class="masthead-date">記事検索</p>
     <h1 class="masthead-title">健康リテラシー</h1>
     <p class="masthead-subtitle">50歳すぎたらここを見る</p>
     <div class="masthead-rule" aria-hidden="true"></div>
@@ -638,103 +670,40 @@ img { max-width: 100%; height: auto; display: block; }
     <a href="/article/category/sleep/">😴 睡眠</a>
     <a href="/article/category/gut/">🦠 腸内フローラ</a>
     <a href="/article/category/eyes/">👁️ 目の健康</a>
-    <a href="/search/" style="background:var(--accent);color:#fff;border-radius:var(--radius);padding:0 16px;font-weight:600;">🔍 検索</a>
+    <a href="/search/" style="background:var(--primary-light);color:var(--primary);">🔍 検索</a>
   </div>
 </nav>
 
-<main id="main-content" class="article-page">
-  <div class="container">
-    <article>
-      <header class="article-header">
-        <div class="article-meta">
-          <span class="cat-badge">検診・予防</span>
-          <span>・2026-06-12</span>
-          <span>・読了5分</span>
-        </div>
-        <h1>50歳で「骨密度検査」は本当に必要？</h1>
-        <p class="article-lead">年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。</p>
-      </header>
-      
-      <div class="article-content" itemprop="articleBody">
-<h2>骨密度検査が推奨される人</h2>
-<table>
-<thead>
-<tr><th>対象</th><th>根拠</th><th>検査法</th></tr>
-</thead>
-<tbody>
-<tr><td><strong>女性 65歳以上</strong></td><td>USPSTF Grade B</td><td>DXA法（腰椎・大腿骨頸部）</td></tr>
-<tr><td><strong>女性 50〜64歳・リスク因子あり</strong></td><td>同上</td><td>同上</td></tr>
-<tr><td><strong>男性 70歳以上</strong></td><td>学会推奨</td><td>同上</td></tr>
-<tr><td>男性 50〜69歳・リスク因子あり</td><td>学会推奨</td><td>同上</td></tr>
-</tbody>
-</table>
-<p>リスク因子：低体重、喫煙、過度飲酒、ステロイド長期使用、骨折歴、家族歴、早期閉経等。</p>
-<h2>過度な検査のデメリット</h2>
-<ul>
-<li><strong>偽陽性</strong>：不必要な治療・不安・コスト</li>
-<li><strong>過剰診断</strong>：症状を出さない「病気」を発見し治療する害</li>
-<li><strong>放射線被曝</strong>：DXAは微小だが積み重ね注意</li>
-</ul>
-<h2>今日からできること</h2>
-<p>次回の健康診断で「腰椎DEXA法」の骨密度検査が含まれているか確認してみてください。</p>
-<p><strong>チェックリスト：</strong></p>
-<ul>
-<li>[ ] 自分が推奨対象か確認（年齢・リスク因子）</li>
-<li>[ ] 検診メニューに「骨密度（DXA法）」があるか</li>
-<li>[ ] なければ医師・保健師に相談・オプション追加</li>
-</ul>
-<h2>原著論文</h2>
-<p>Screening for osteoporosis to prevent fractures: USPSTF recommendation statement. <em>JAMA Neurol</em>. 2024;81(5):456-463. DOI: 10.1001/jamaneurol.2024.0089</p>
-      </div>
-      
-      <footer class="article-footer">
-        <div class="source-link-wrap">
-          <a href="https://jamanetwork.com/journals/jamaneurology/fullarticle/2815432" class="source-link" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            原文を読む
-          </a>
-        </div>
-        
-        <div class="aff-box" style="margin-top:24px;padding:20px;display:flex;gap:16px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-          <span style="font-size:1.5rem;flex-shrink:0;">📚</span>
-          <div style="flex:1;">
-            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">参考文献・出典</div>
-            <div style="font-size:.85rem;color:var(--ink-soft);line-height:1.7;">
-              https://jamanetwork.com/journals/jamaneurology/fullarticle/2815432
-            </div>
-          </div>
-        </div>
-        
-        <div class="aff-box" style="margin-top:16px;padding:16px;display:flex;gap:12px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--radius);background:var(--paper);">
-          <span style="font-size:1.5rem;flex-shrink:0;">🛒</span>
-          <div style="flex:1;">
-            <div style="font-size:.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px;">おすすめ商品</div>
-            <div style="font-weight:600;margin-bottom:8px;"><a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank" rel="nofollow" style="color:var(--ink);text-decoration:none;">まるごと健診チェッカー — 自宅でHbA1c・コレステロール・肝機能</a></div>
-            <a href="https://www.amazon.co.jp/dp/B0DTSQ1GP3?tag=healthlitera2-22" target="_blank" rel="nofollow" style="display:inline-block;padding:8px 16px;background:var(--primary);color:#fff;border-radius:var(--radius);font-size:.8rem;font-weight:600;text-decoration:none;">Amazonで見る →</a>
-          </div>
-        </div>
-        <p style="font-size:.7rem;color:var(--muted);margin-top:8px;">※ アフィリエイトリンクを含みます</p>
-      </footer>
-      
-      <nav class="related-articles" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);" aria-labelledby="related-heading">
-        <h3 id="related-heading" style="font-size:.9rem;font-weight:700;margin:0 0 16px;color:var(--ink);">この記事を読んだ人はこちらも</h3>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="/article/dual-task-cognitive-improvement/" class="related-card" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-            <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">脳・認知</span>
-            <span style="font-size:.8rem;font-weight:600;line-height:1.5;">週3回の「ながら運動」で認知機能が改善</span>
-          </a>
-          <a href="/article/postprandial-walking-glucose-control/" class="related-card" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-            <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">血糖・脂質</span>
-            <span style="font-size:.8rem;font-weight:600;line-height:1.5;">食後15分のウォーキングが糖を変える</span>
-          </a>
-          <a href="/article/protein-timing-muscle-maintenance/" class="related-card" style="flex:1;min-width:140px;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);padding:12px;text-decoration:none;color:inherit;transition:all .2s;" onmouseover="this.style.borderColor='var(--primary)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
-            <span style="display:inline-block;font-size:.65rem;font-weight:700;color:var(--primary);background:var(--primary-light);padding:2px 8px;border-radius:4px;margin-bottom:6px;">筋肉・骨</span>
-            <span style="font-size:.8rem;font-weight:600;line-height:1.5;">「たんぱく質は朝と夜に分ける」が新しい常識</span>
-          </a>
-        </div>
-      </nav>
-    </article>
+<main id="main-content">
+  <div class="search-container">
+    <header class="search-header">
+      <h1 class="search-title">記事検索</h1>
+      <p class="search-subtitle">キーワードで記事を探す</p>
+    </header>
+    
+    <form class="search-form" id="searchForm" onsubmit="return false;">
+      <input type="search" class="search-input" id="searchInput" placeholder="例: 血圧、認知症、たんぱく質、食後ウォーキング..." aria-label="検索キーワード" autocomplete="off">
+      <button type="button" class="search-btn" id="searchBtn">検索</button>
+    </form>
+    
+    <p class="search-stats" id="searchStats">全9件の記事から検索できます</p>
+    
+    <div class="search-results" id="searchResults">
+      <!-- Results will be inserted here -->
+    </div>
+    
+    <div class="no-results" id="noResults" style="display:none;">
+      <div class="no-results-icon">🔍</div>
+      <h3 style="margin:0 0 8px;font-size:1.1rem;color:var(--ink);">該当する記事が見つかりませんでした</h3>
+      <p style="margin:0;color:var(--muted);">キーワードを変えて試してみてください</p>
+    </div>
   </div>
+  
+  <!-- Popular search tags -->
+  <section style="max-width:720px;margin:48px auto 0;padding:0 20px;">
+    <h3 style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin:0 0 16px;color:var(--ink);">よく検索されるキーワード</h3>
+    <div class="search-tags" id="popularTags"></div>
+  </section>
 </main>
 
 <footer class="footer" role="contentinfo">
@@ -759,10 +728,10 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="footer-col">
       <h4>このサイトについて</h4>
       <ul>
-        <li><a href="#">運営者情報</a></li>
-        <li><a href="#">プライバシー</a></li>
-        <li><a href="#">免責事項</a></li>
-        <li><a href="#">お問い合わせ</a></li>
+        <li><a href="/privacy.html#about">運営者情報</a></li>
+        <li><a href="/privacy.html#privacy">プライバシー</a></li>
+        <li><a href="/privacy.html#disclaimer">免責事項</a></li>
+        <li><a href="/privacy.html#revision">改訂履歴</a></li>
       </ul>
     </div>
   </div>
@@ -771,6 +740,167 @@ img { max-width: 100%; height: auto; display: block; }
     <p>&copy; 2026 健康リテラシー. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+// Search functionality
+(function() {
+  "use strict";
+  
+  let searchIndex = null;
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const searchResults = document.getElementById("searchResults");
+  const noResults = document.getElementById("noResults");
+  const searchStats = document.getElementById("searchStats");
+  const popularTags = document.getElementById("popularTags");
+  
+  // Load search index
+  fetch("/search-index.json")
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      searchIndex = data.articles;
+      renderPopularTags();
+      
+      // Check for URL query parameter
+      var urlParams = new URLSearchParams(window.location.search);
+      var query = urlParams.get("q");
+      if (query) {
+        searchInput.value = query;
+        performSearch(query);
+      }
+    })
+    .catch(function(err) { console.error("Failed to load search index:", err); });
+  
+  function performSearch(query) {
+    if (!searchIndex) return;
+    
+    var q = query.trim().toLowerCase();
+    if (!q) {
+      searchResults.innerHTML = "";
+      searchStats.textContent = "全9件の記事から検索できます";
+      noResults.style.display = "none";
+      return;
+    }
+    
+    var results = searchIndex.filter(function(art) {
+      var text = (art.title + " " + art.description + " " + (art.tags || []).join(" ") + " " + art.cat_name).toLowerCase();
+      return text.indexOf(q) !== -1;
+    });
+    
+    searchStats.textContent = results.length + "件の記事が見つかりました (全" + searchIndex.length + "件中)";
+    
+    if (results.length === 0) {
+      searchResults.innerHTML = "";
+      noResults.style.display = "block";
+      return;
+    }
+    
+    noResults.style.display = "none";
+    
+    var catInfo = {
+      heart: {name: "心臓・血管", icon: "❤️"},
+      brain: {name: "脳・認知", icon: "🧠"},
+      muscle: {name: "筋肉・骨", icon: "💪"},
+      sugar: {name: "血糖・脂質", icon: "🍚"},
+      check: {name: "検診・予防", icon: "🔍"},
+      sleep: {name: "睡眠", icon: "😴"},
+      gut: {name: "腸内フローラ", icon: "🦠"},
+      eyes: {name: "目の健康", icon: "👁️"}
+    };
+    
+    function highlight(text, query) {
+      if (!query) return text;
+      var regex = new RegExp("(" + query.replace(/[.*+?^${}()|[\]\\]/g, "\$&") + ")", "gi");
+      return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+    
+    var catInfo = {
+      heart: {name: "心臓・血管", icon: "❤️"},
+      brain: {name: "脳・認知", icon: "🧠"},
+      muscle: {name: "筋肉・骨", icon: "💪"},
+      sugar: {name: "血糖・脂質", icon: "🍚"},
+      check: {name: "検診・予防", icon: "🔍"},
+      sleep: {name: "睡眠", icon: "😴"},
+      gut: {name: "腸内フローラ", icon: "🦠"},
+      eyes: {name: "目の健康", icon: "👁️"}
+    };
+    
+    searchResults.innerHTML = results.map(function(art) {
+      var cat = catInfo[art.category];
+      return '<article class="search-result">' +
+        '<header class="search-result-header">' +
+        '<span class="search-result-cat" style="background:var(--primary-light);color:var(--primary);">' + cat.name + '</span>' +
+        '</header>' +
+        '<h2 class="search-result-title">' +
+        '<a href="' + art.url + '">' + highlight(art.title, q) + '</a>' +
+        '</h2>' +
+        '<div class="search-result-meta">' + art.date + '・読了' + art.read_time + '</div>' +
+        '<p class="search-result-desc">' + highlight(art.description, q) + '</p>' +
+        '<div class="search-tags">' +
+        (art.tags || []).map(function(t) { return '<span class="search-tag">' + t + '</span>'; }).join("") +
+        '</div>' +
+      '</article>';
+    }).join("");
+  }
+  
+  function highlight(text, query) {
+    if (!query) return text;
+    var regex = new RegExp("(" + query.replace(/[.*+?^${}()|[\]\\]/g, "\$&") + ")", "gi");
+    return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+  }
+  
+  function renderPopularTags() {
+    if (!searchIndex) return;
+    var tagCounts = {};
+    searchIndex.forEach(function(art) {
+      (art.tags || []).forEach(function(tag) {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+    });
+    
+    var sortedTags = Object.entries(tagCounts)
+      .sort(function(a, b) { return b[1] - a[1]; })
+      .slice(0, 12);
+    
+    popularTags.innerHTML = sortedTags.map(function(pair) {
+      return '<a href="/search/?q=' + encodeURIComponent(pair[0]) + '" class="search-tag" style="text-decoration:none;">' + pair[0] + " (" + pair[1] + ')</a>';
+    }).join("");
+  }
+  
+  // Event listeners
+  searchBtn.addEventListener("click", function() { performSearch(searchInput.value); });
+  searchInput.addEventListener("keypress", function(e) { if (e.key === "Enter") performSearch(searchInput.value); });
+  
+  // Debounced live search
+  var debounceTimer;
+  searchInput.addEventListener("input", function() {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() { performSearch(searchInput.value); }, 150);
+  });
+  
+  // URL sync
+  window.addEventListener("popstate", function() {
+    var q = new URLSearchParams(window.location.search).get("q");
+    if (q !== null) {
+      searchInput.value = q;
+      performSearch(q);
+    }
+  });
+  
+  function updateURL(query) {
+    var url = new URL(window.location);
+    if (query) url.searchParams.set("q", query);
+    else url.searchParams.delete("q");
+    window.history.replaceState(null, "", url);
+  }
+  
+  var originalPerformSearch = performSearch;
+  performSearch = function(query) {
+    originalPerformSearch(query);
+    updateURL(query);
+  };
+})();
+</script>
 
 <script>
 (function() {

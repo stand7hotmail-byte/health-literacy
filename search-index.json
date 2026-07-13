@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "generated": "2026-07-13",
+  "articles": [
+    {
+      "slug": "blood-pressure-morning-evening",
+      "title": "血圧「朝型」と「夜型」で薬の効き方が変わる",
+      "category": "heart",
+      "cat_name": "心臓・血管",
+      "description": "朝に血圧が高くなる「モーニングサージ」と、夜間に下がらない「ノンダイパータイプ」。それぞれに最適な服薬タイミングと生活習慣の工夫とは。",
+      "date": "2026-06-23",
+      "read_time": "4分",
+      "tags": [
+        "血圧",
+        "モーニングサージ",
+        "ノンダイパー",
+        "服薬",
+        "高血圧",
+        "降圧薬"
+      ],
+      "url": "/article/blood-pressure-morning-evening/"
+    },
+    {
+      "slug": "dual-task-cognitive-improvement",
+      "title": "週3回の「ながら運動」で認知機能が改善",
+      "category": "brain",
+      "cat_name": "脳・認知",
+      "description": "ウォークしながら計算、掃除しながら音声教材を聴く――「運動＋知的活動」の組み合わせがBDNFを増やす最新エビデンス。",
+      "date": "2026-06-20",
+      "read_time": "5分",
+      "tags": [
+        "認知症予防",
+        "デュアルタスク",
+        "BDNF",
+        "運動",
+        "認知機能"
+      ],
+      "url": "/article/dual-task-cognitive-improvement/"
+    },
+    {
+      "slug": "protein-timing-muscle-maintenance",
+      "title": "「たんぱく質は朝と夜に分ける」が新しい常識",
+      "category": "muscle",
+      "cat_name": "筋肉・骨",
+      "description": "高齢者の筋肉合成には1食あたり約25〜30gのたんぱく質が必要。まとめ食いせず、朝昼夜に分けることで筋肉の維持効率が変わります。",
+      "date": "2026-06-18",
+      "read_time": "4分",
+      "tags": [
+        "サルコペニア",
+        "たんぱく質",
+        "筋肉",
+        "アナボリックレジスタンス",
+        "朝食"
+      ],
+      "url": "/article/protein-timing-muscle-maintenance/"
+    },
+    {
+      "slug": "postprandial-walking-glucose-control",
+      "title": "食後15分のウォーキングが糖を変える",
+      "category": "sugar",
+      "cat_name": "血糖・脂質",
+      "description": "食後の血糖ピークを抑制するには、食前ではなく「食後10〜15分」の軽い歩行が最も効果的という大規模研究の知見を紹介。",
+      "date": "2026-06-15",
+      "read_time": "3分",
+      "tags": [
+        "血糖値",
+        "食後高血糖",
+        "ウォーキング",
+        "インスリン",
+        "糖尿病予防"
+      ],
+      "url": "/article/postprandial-walking-glucose-control/"
+    },
+    {
+      "slug": "bone-density-screening-necessity",
+      "title": "50歳で「骨密度検査」は本当に必要？",
+      "category": "check",
+      "cat_name": "検診・予防",
+      "description": "年齢・性別で推奨される検診には明確なエビデンス差があります。効果が確認されている検査と、過度な検査によるデメリットを整理しました。",
+      "date": "2026-06-12",
+      "read_time": "5分",
+      "tags": [
+        "骨粗鬆症",
+        "骨密度",
+        "DEXA",
+        "検診",
+        "USPSTF",
+        "女性"
+      ],
+      "url": "/article/bone-density-screening-necessity/"
+    },
+    {
+      "slug": "fermented-foods-blood-pressure",
+      "title": "納豆・ヨーグルト・甘酒 ― 血圧を下げる発酵食品の選び方",
+      "category": "heart",
+      "cat_name": "心臓・血管",
+      "description": "ナットウキナーゼ・乳酸菌・酢酸それぞれの作用機序と、効果的な摂取タイミングを解説。",
+      "date": "2026-06-08",
+      "read_time": "4分",
+      "tags": [
+        "発酵食品",
+        "ナットウキナーゼ",
+        "乳酸菌",
+        "酢酸",
+        "血圧"
+      ],
+      "url": "/article/fermented-foods-blood-pressure/"
+    },
+    {
+      "slug": "blue-light-smartphone-dementia-risk",
+      "title": "「寝る前スマホ」が認知症リスクを上げる理由",
+      "category": "sleep",
+      "cat_name": "睡眠",
+      "description": "夜間のブルーライト曝露がメラトニン分泌を抑制し、アミロイドβクリアランスを阻害するメカニズムを解明した最新研究。",
+      "date": "2026-06-25",
+      "read_time": "4分",
+      "tags": [
+        "ブルーライト",
+        "メラトニン",
+        "認知症",
+        "アミロイドβ",
+        "グリムファティック",
+        "スマホ"
+      ],
+      "url": "/article/blue-light-smartphone-dementia-risk/"
+    },
+    {
+      "slug": "gut-microbiome-diversity-longevity",
+      "title": "腸内細菌の「多様性」が長寿を分ける ― 百歳者研究から",
+      "category": "gut",
+      "cat_name": "腸内フローラ",
+      "description": "100歳以上の長寿者は、特定の腸内細菌叢（アッカーマンシア、バクテロイデス等）を多く保有。食物繊維発酵産物の酪酸が鍵に。",
+      "date": "2026-06-22",
+      "read_time": "5分",
+      "tags": [
+        "腸内フローラ",
+        "腸内細菌",
+        "長寿",
+        "酪酸",
+        "アッカーマンシア",
+        "百歳者",
+        "食物繊維"
+      ],
+      "url": "/article/gut-microbiome-diversity-longevity/"
+    },
+    {
+      "slug": "lutein-zeaxanthin-amd-prevention",
+      "title": "加齢黄斑変性リスクを下げる「ルテイン・ゼアキサンチン」の実力",
+      "category": "eyes",
+      "cat_name": "目の健康",
+      "description": "AREDS2試験の長期フォローアップで確認。網膜の黄斑色素光学密度を高め、ブルーライトダメージから光受容体を守るエビデンス。",
+      "date": "2026-06-19",
+      "read_time": "4分",
+      "tags": [
+        "加齢黄斑変性",
+        "ルテイン",
+        "ゼアキサンチン",
+        "AREDS2",
+        "目の健康",
+        "ブルーライト"
+      ],
+      "url": "/article/lutein-zeaxanthin-amd-prevention/"
+    }
+  ]
+}
