@@ -160,6 +160,61 @@
         "ブルーライト"
       ],
       "url": "/article/lutein-zeaxanthin-amd-prevention/"
+    },
+    {
+      "slug": "hypertension-guideline-2024-update",
+      "title": "2024年高血圧治療ガイドライン改定の要点 — 目標値と薬選びがどう変わったか",
+      "category": "heart",
+      "cat_name": "心臓・血管",
+      "description": "JNC 2024・ESC/ESH 2024・日本高血圧学会ガイドラインの最新改定ポイントを整理。収縮期血圧130mmHg未満への目標値引き下げ、初期療法のARB/ACE阻害薬＋CCB併用推奨、家庭血圧重視の新基準など、臨床現場で即活かせる変更点を解説。",
+      "date": "2024-12-15",
+      "read_time": "5分",
+      "tags": [
+        "高血圧",
+        "ガイドライン",
+        "JNC2024",
+        "ESC2024",
+        "家庭血圧",
+        "減塩"
+      ],
+      "url": "/article/hypertension-guideline-2024-update/"
+    },
+    {
+      "slug": "sarcopenia-prevention-protein-exercise",
+      "title": "サルコペニア予防の最前線 — 「たんぱく質＋レジスタンス運動」の黄金比とは",
+      "category": "muscle",
+      "cat_name": "筋肉・骨",
+      "description": "2024年JCSM（日本筋萎縮学会）・ESPEN（欧州臨床栄養代謝学会）の最新ポジションペーパーに基づき、サルコペニア予防・改善に必要なたんぱく質量、タイミング、運動強度のエビデンスを整理。ロイシン閾値、アナボリックレジスタンス克服の実践プロトコルを提示。",
+      "date": "2024-12-10",
+      "read_time": "5分",
+      "tags": [
+        "サルコペニア",
+        "たんぱく質",
+        "筋肉",
+        "ロイシン",
+        "レジスタンス運動",
+        "アナボリックレジスタンス"
+      ],
+      "url": "/article/sarcopenia-prevention-protein-exercise/"
+    },
+    {
+      "slug": "glucose-monitoring-cgm-revolution",
+      "title": "持続血糖測定（CGM）が変える糖尿病ケア — 「見えない血糖」を可視化して合併症を防ぐ",
+      "category": "sugar",
+      "cat_name": "血糖・脂質",
+      "description": "FreeStyleリブレ・Dexcom G7等のCGM（持続血糖測定）が保険適用拡大で一般化。HbA1cだけでは見えない「血糖変動」「食後高血糖」「夜間低血糖」を可視化し、食事・運動・薬調整に直結させる新時代の糖尿病ケアを解説。",
+      "date": "2024-12-05",
+      "read_time": "5分",
+      "tags": [
+        "血糖値",
+        "CGM",
+        "FreeStyleリブレ",
+        "Dexcom",
+        "HbA1c",
+        "糖尿病",
+        "食後高血糖"
+      ],
+      "url": "/article/glucose-monitoring-cgm-revolution/"
     }
   ]
 }
