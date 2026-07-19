@@ -1,0 +1,68 @@
+name: Weekly Health Column Generator
+
+on:
+  schedule:
+    # 毎週金曜 午前6時 (UTC) = 日本時間金曜 午後3時
+    - cron: '0 6 * * 5'
+  workflow_dispatch:  # 手動実行も可能
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+  PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  generate-column:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml feedparser python-dateutil pyyaml jinja2 python-dotenv
+
+      - name: Generate weekly column
+        id: generate
+        run: |
+          python scripts/generate_weekly_column.py
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          PUBMED_EMAIL: ${{ secrets.PUBMED_EMAIL }}
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "🤖 Auto: Add weekly column $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '⚠️ Weekly column generation failed',
+              body: `Workflow run: ${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
+              labels: ['bug', 'automation']
+            })
