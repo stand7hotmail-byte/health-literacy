@@ -1,39 +1,34 @@
-"""設定・定数管理"""
+"""Configuration constants and shared data."""
 
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+# Load .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
-# ==================== API Keys ====================
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 PUBMED_EMAIL = os.getenv("PUBMED_EMAIL")
-GH_TOKEN = os.getenv("GH_TOKEN")
 
-# ==================== API Endpoints ====================
-OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
-PUBMED_ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
-PUBMED_EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
-
-# ==================== Paths ====================
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-ARTICLE_DIR = os.path.join(BASE_DIR, "article")
-
-# ==================== OpenRouter Models ====================
+# OpenRouter 無料モデル (優先順位順) - 2026/7 時点動作確認済み
 FREE_MODELS = [
-    "google/gemma-4-26b-a4b-it:free",
-    "nvidia/nemotron-3-ultra-550b-a55b:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "nousresearch/hermes-3-llama-3.1-405b:free",
-    "nvidia/nemotron-3-super-120b-a12b:free",
-    "qwen/qwen3-next-80b-a3b-instruct:free",
-    "openai/gpt-oss-20b:free",
-    "meta-llama/llama-3.2-3b-instruct:free",
-    "nvidia/nemotron-nano-9b-v2:free",
-    "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+    "google/gemma-4-26b-a4b-it:free",         # Gemma 4 (高品質)
+    "nvidia/nemotron-3-ultra-550b-a55b:free", # Nemotron 3 Ultra (高品質)
+    "meta-llama/llama-3.3-70b-instruct:free", # Llama 3.3 70B (高品質)
+    "nousresearch/hermes-3-llama-3.1-405b:free", # Hermes 3 405B (最高品質)
+    "nvidia/nemotron-3-super-120b-a12b:free", # Nemotron 3 Super
+    "qwen/qwen3-next-80b-a3b-instruct:free",  # Qwen3 Next
+    "openai/gpt-oss-20b:free",                # GPT-OSS 20B
+    "meta-llama/llama-3.2-3b-instruct:free",  # Llama 3.2 3B (軽量)
+    "nvidia/nemotron-nano-9b-v2:free",        # Nemotron Nano
+    "cognitivecomputations/dolphin-mistral-24b-venice-edition:free", # Dolphin
 ]
 
-# ==================== Target Keywords for Scoring ====================
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1/chat/completions"
+
+# 50代以上向けキーワード（スコアリング用）
 TARGET_KEYWORDS = {
     "high_priority": [
         "hypertension", "blood pressure", "sarcopenia", "muscle", "protein",
@@ -49,7 +44,7 @@ TARGET_KEYWORDS = {
     ]
 }
 
-# ==================== Affiliate Products ====================
+# アフィリエイト商品マッピング（キーワード→商品）
 AFFILIATE_PRODUCTS = {
     "blood pressure": [
         {"name": "Omron 上腕式血圧計 HCR-7106", "url": "https://amzn.to/3XyZ123", "tag": "healthlitera2-22"},
@@ -71,26 +66,17 @@ AFFILIATE_PRODUCTS = {
     ],
 }
 
-# ==================== Category Mapping ====================
+# カテゴリマッピング
 CAT_MAP = {
-    "heart": "心臓・血管", "brain": "脳・認知", "muscle": "筋肉・骨", "sugar": "血糖・脂質",
-    "check": "検診・予防", "sleep": "睡眠", "gut": "腸内フローラ", "eyes": "目の健康",
-    "health": "健康",
+    "heart": {"name": "心臓・血管", "icon": "❤️"},
+    "brain": {"name": "脳・認知", "icon": "🧠"},
+    "muscle": {"name": "筋肉・骨", "icon": "💪"},
+    "sugar": {"name": "血糖・脂質", "icon": "🍚"},
+    "check": {"name": "検診・予防", "icon": "🔍"},
+    "sleep": {"name": "睡眠", "icon": "😴"},
+    "gut": {"name": "腸内フローラ", "icon": "🦠"},
+    "eyes": {"name": "目の健康", "icon": "👁️"},
 }
 
-TAG_TO_CAT = {
-    "hypertension": "heart", "blood pressure": "heart", "sarcopenia": "muscle",
-    "muscle": "muscle", "protein": "muscle", "cognitive": "brain", "dementia": "brain",
-    "alzheimer": "brain", "diabetes": "sugar", "glucose": "sugar", "insulin": "sugar",
-    "osteoporosis": "muscle", "bone": "muscle", "fracture": "muscle", "sleep": "sleep",
-    "insomnia": "sleep", "gut microbiome": "gut", "longevity": "gut", "aging": "gut",
-    "eye": "eyes", "vision": "eyes",
-}
-
-# ==================== Site URLs ====================
-SITE_URL = "https://health-literacy.vercel.app"
-SITE_NAME = "健康リテラシー"
-
-# ==================== PubMed API ====================
-PUBMED_ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
-PUBMED_EFETCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+# HTML Template (imported from templates.py)
+# CSS_TEMPLATE and JS_TEMPLATE will be imported from templates.py

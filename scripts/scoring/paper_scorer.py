@@ -1,12 +1,12 @@
 """Paper scoring and filtering module."""
 
 from typing import List
-from config.settings import TARGET_KEYWORDS
-from models.paper import Paper
+from models import Paper
+from config import TARGET_KEYWORDS
 from datetime import datetime
 
 
-def score_paper(paper) -> float:
+def score_paper(paper: Paper) -> float:
     """論文スコアリング（50代以上関連度・エビデンスレベル・新しさ）"""
     score = 0.0
     text = (paper.title + " " + paper.abstract).lower()
@@ -37,13 +37,13 @@ def score_paper(paper) -> float:
     except:
         pass
     
-    if "japan" in text.lower() or "japanese" in text.lower():
+    if "japan" in (paper.title + " " + paper.abstract).lower() or "japanese" in (paper.title + " " + paper.abstract).lower():
         score += 10
     
     return score
 
 
-def filter_papers(papers: list, top_n: int = 3) -> list:
+def filter_papers(papers: List[Paper], top_n: int = 3) -> List[Paper]:
     """スコア順でソート・上位N件抽出"""
     for p in papers:
         p.score = score_paper(p)

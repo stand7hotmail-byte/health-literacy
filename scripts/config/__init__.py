@@ -1,0 +1,27 @@
+from .settings import (
+    FREE_MODELS,
+    OPENROUTER_BASE_URL,
+    TARGET_KEYWORDS,
+    AFFILIATE_PRODUCTS,
+    CATEGORY_MAP,
+    TAG_TO_CAT,
+    OPENROUTER_API_KEY,
+    PUBMED_EMAIL,
+    COLUMN_PROMPT_TEMPLATE
+)
+
+# 後方互換性用エイリアス
+CAT_MAP = CATEGORY_MAP
+
+__all__ = [
+    "FREE_MODELS",
+    "OPENROUTER_BASE_URL",
+    "TARGET_KEYWORDS",
+    "AFFILIATE_PRODUCTS",
+    "CATEGORY_MAP",
+    "CAT_MAP",  # Alias for backward compatibility
+    "TAG_TO_CAT",
+    "OPENROUTER_API_KEY",
+    "PUBMED_EMAIL",
+    "COLUMN_PROMPT_TEMPLATE"
+]

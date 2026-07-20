@@ -1,15 +1,16 @@
-"""Paper scoring and filtering module."""
+"""
+Paper scoring module.
+"""
 
-from typing import List
-from config.settings import TARGET_KEYWORDS
-from models.paper import Paper
 from datetime import datetime
+from typing import List
+from config import TARGET_KEYWORDS
 
 
 def score_paper(paper) -> float:
     """論文スコアリング（50代以上関連度・エビデンスレベル・新しさ）"""
     score = 0.0
-    text = (paper.title + " " + paper.abstract).lower()
+    text = (paper["title"] + " " + paper["abstract"]).lower()
     
     for kw in TARGET_KEYWORDS["high_priority"]:
         if kw in text:
@@ -18,7 +19,7 @@ def score_paper(paper) -> float:
         if kw in text:
             score += 5
     
-    text_lower = (paper.title + " " + paper.abstract).lower()
+    text_lower = (paper["title"] + " " + paper["abstract"]).lower()
     if "meta-analysis" in text_lower or "systematic review" in text_lower:
         score += 20
     elif "randomized" in text_lower and "controlled" in text_lower:
@@ -31,22 +32,24 @@ def score_paper(paper) -> float:
         score += 5
     
     try:
-        pub_date = datetime.strptime(paper.pub_date[:10], "%Y-%m-%d")
+        pub_date = datetime.strptime(paper["pub_date"][:10], "%Y-%m-%d")
         days_old = (datetime.now() - pub_date).days
         score += max(0, 30 - days_old)
     except:
         pass
     
-    if "japan" in text.lower() or "japanese" in text.lower():
+    if "japan" in text_lower or "japanese" in text_lower:
         score += 10
     
     return score
 
 
-def filter_papers(papers: list, top_n: int = 3) -> list:
+def filter_papers(papers: List, top_n: int = 3) -> List:
     """スコア順でソート・上位N件抽出"""
-    for p in papers:
-        p.score = score_paper(p)
+    from datetime import datetime
     
-    papers.sort(key=lambda x: x.score, reverse=True)
+    for p in papers:
+        p["score"] = score_paper(p)
+    
+    papers.sort(key=lambda x: x.get("score", 0), reverse=True)
     return papers[:top_n]

@@ -1,12 +1,43 @@
-"""LLM client for OpenRouter API."""
+"""LLM client and column generation module."""
 
 import os
+import json
+import re
 import requests
 import time
-from typing import Optional
-from config.settings import FREE_MODELS, OPENROUTER_BASE_URL
+from scripts.config import OPENROUTER_API_KEY, FREE_MODELS, OPENROUTER_BASE_URL, COLUMN_PROMPT_TEMPLATE
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
+def clean_json_response(text: str) -> str:
+    """LLM応答からJSON抽出"""
+    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```\s*$', '', text)
+    text = re.sub(r'^```\s*', '', text)
+    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        return match.group(0)
+    return text
+
+
+def safe_json_loads(text: str) -> dict:
+    """Safely parse JSON with cleaning"""
+    cleaned = clean_json_response(text)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError as e:
+        cleaned = re.sub(r'(?<!\\)\n', '\\n', cleaned)
+        cleaned = re.sub(r'(?<!\\)\r', '\\r', cleaned)
+        cleaned = re.sub(r'(?<!\\)\t', '\\t', cleaned)
+        cleaned = re.sub(r',\s*}', '}', cleaned)
+        cleaned = re.sub(r',\s*]', ']', cleaned)
+        try:
+            return json.loads(cleaned)
+        except json.JSONDecodeError:
+            match = re.search(r'\{.*\}', cleaned, re.DOTALL)
+            if match:
+                return json.loads(match.group(0))
+            raise
 
 
 def call_openrouter(prompt: str, model: str = None) -> str:
@@ -37,7 +68,7 @@ def call_openrouter(prompt: str, model: str = None) -> str:
         
         try:
             response = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
+                OPENROUTER_BASE_URL,
                 headers=headers,
                 json=payload,
                 timeout=120

@@ -1,16 +1,53 @@
-"""LLM client for OpenRouter API."""
+"""OpenRouter LLM client module."""
 
-import os
-import requests
+import json
+import re
 import time
+import requests
 from typing import Optional
-from config.settings import FREE_MODELS, OPENROUTER_BASE_URL
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+from ..config import FREE_MODELS, OPENROUTER_BASE_URL, OPENROUTER_API_KEY
+
+
+def clean_json_response(text: str) -> str:
+    """LLM応答からJSON抽出"""
+    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```\s*$', '', text)
+    text = re.sub(r'^```\s*', '', text)
+    text = re.sub(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', '', text)
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        return match.group(0)
+    return text
+
+
+def safe_json_loads(text: str) -> dict:
+    """Safely parse JSON with cleaning"""
+    cleaned = clean_json_response(text)
+    try:
+        import json
+        return json.loads(cleaned)
+    except Exception as e:
+        cleaned = re.sub(r'(?<!\\)\n', '\\n', cleaned)
+        cleaned = re.sub(r'(?<!\\)\r', '\\r', cleaned)
+        cleaned = re.sub(r'(?<!\\)\t', '\\t', cleaned)
+        cleaned = re.sub(r',\s*}', '}', cleaned)
+        cleaned = re.sub(r',\s*]', ']', cleaned)
+        try:
+            import json
+            return json.loads(cleaned)
+        except Exception:
+            match = re.search(r'\{.*\}', cleaned, re.DOTALL)
+            if match:
+                import json
+                return json.loads(match.group(0))
+            raise
 
 
 def call_openrouter(prompt: str, model: str = None) -> str:
     """OpenRouter API 呼び出し（フォールバック付き）"""
+    from ..config import FREE_MODELS, OPENROUTER_BASE_URL, OPENROUTER_API_KEY
+    
     if model is None:
         model = FREE_MODELS[0]
     
@@ -38,8 +75,22 @@ def call_openrouter(prompt: str, model: str = None) -> str:
         try:
             response = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
-                headers=headers,
-                json=payload,
+                headers={
+                    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://health-literacy.vercel.app",
+                    "X-Title": "Health Literacy Column Generator"
+                },
+                json={
+                    "model": model_name,
+                    "messages": [
+                        {"role": "system", "content": "あなたは健康情報サイト「健康リテラシー」の編集長です。医学論文を一般読者向けに翻訳し、実践的なアクションを提示するコラムを書きます。"},
+                        {"role": "user", "content": prompt}
+                    ],
+                    "max_tokens": 2000,
+                    "temperature": 0.7,
+                    "top_p": 0.9
+                },
                 timeout=120
             )
             

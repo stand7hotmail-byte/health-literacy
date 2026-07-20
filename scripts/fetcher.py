@@ -1,10 +1,10 @@
 """PubMed API fetcher module."""
 
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List
-from models import Paper
-from config import PUBMED_EMAIL
+from scripts.models import Paper
+from scripts.config import TARGET_KEYWORDS, PUBMED_EMAIL
 
 
 def fetch_pubmed_papers(days_back: int = 7, max_results: int = 50) -> List[Paper]:
@@ -16,11 +16,10 @@ def fetch_pubmed_papers(days_back: int = 7, max_results: int = 50) -> List[Paper
         "protein", "blood pressure", "glucose", "osteoporosis"
     ]
     
-    # Use simpler query to avoid 400 Bad Request
-    query = " OR ".join([f'"{k}"' for k in keywords[:8]])  # Limit to first 8 keywords
+    query = " OR ".join([f'"{k}"' for k in keywords])
     query += f' AND ("last {days_back} days"[dp])'
     query += " AND (humans[MeSH Terms])"
-    query += " AND (clinical trial[pt] OR meta-analysis[pt] OR review[pt])"
+    query += " AND (clinical trial[pt] OR meta-analysis[pt] OR guideline[pt] OR review[pt])"
     
     url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
     params = {
